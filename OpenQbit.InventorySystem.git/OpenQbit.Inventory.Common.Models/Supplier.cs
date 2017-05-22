@@ -15,5 +15,6 @@ namespace OpenQbit.Inventory.Common.Models
         public string telephone { get; set; }
 
         public virtual ICollection<Batch> Batch { get; set; }
+        public virtual ICollection<Return> Return { get; set; }
     }
 }
