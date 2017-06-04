@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 Common", "0 Common", "{8B8FBCD8-9159-4F26-A452-EB2CEA886FA6}"
 EndProject
@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.Inventory.DAL.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.Inventory.DAL.DataAccess.Contr", "OpenQbit.Inventory.DAL.DataAccess.Contr\OpenQbit.Inventory.DAL.DataAccess.Contr.csproj", "{F63EA259-B2D9-45D9-A02D-75B387413687}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.Inventory.Service.WebApi", "OpenQbit.Inventory.Service.WebApi\OpenQbit.Inventory.Service.WebApi.csproj", "{B78ADE12-B50D-43BC-AF33-623B6AB00B8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F63EA259-B2D9-45D9-A02D-75B387413687}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F63EA259-B2D9-45D9-A02D-75B387413687}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F63EA259-B2D9-45D9-A02D-75B387413687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B78ADE12-B50D-43BC-AF33-623B6AB00B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78ADE12-B50D-43BC-AF33-623B6AB00B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78ADE12-B50D-43BC-AF33-623B6AB00B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78ADE12-B50D-43BC-AF33-623B6AB00B8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,5 +53,6 @@ Global
 		{D31DDA99-E1EF-402D-ADE5-59B7ADC38922} = {8B8FBCD8-9159-4F26-A452-EB2CEA886FA6}
 		{F0E7D06E-236D-4EEE-8876-F73F300A161D} = {B600BFBE-8C16-44D6-8627-9CFDD7006AA6}
 		{F63EA259-B2D9-45D9-A02D-75B387413687} = {B600BFBE-8C16-44D6-8627-9CFDD7006AA6}
+		{B78ADE12-B50D-43BC-AF33-623B6AB00B8A} = {E6886CAB-326C-416A-80A2-94AE55E1C5B4}
 	EndGlobalSection
 EndGlobal
