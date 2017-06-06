@@ -209,6 +209,11 @@
     <Compile Include="Controllers\Api\ApiBatchController.cs" />
     <Compile Include="Controllers\Api\ApiDamageController.cs" />
     <Compile Include="Controllers\Api\ApiDistributerController.cs" />
+    <Compile Include="Controllers\Api\ApiItemController.cs" />
+    <Compile Include="Controllers\Api\ApiLocationController.cs" />
+    <Compile Include="Controllers\Api\ApiReturnController.cs" />
+    <Compile Include="Controllers\Api\ApiSupplierController.cs" />
+    <Compile Include="Controllers\Api\ApiTransferDetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
