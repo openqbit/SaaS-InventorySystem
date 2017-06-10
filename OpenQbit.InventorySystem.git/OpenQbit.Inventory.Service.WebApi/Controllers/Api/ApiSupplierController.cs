@@ -60,5 +60,17 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
             return supplierList;
         }
+        public bool Create(ApiSupplier apiSupplier)
+        {
+            return true;
+        }
+        public bool Delete(int ID)
+        {
+            return true;
+        }
+        public bool Update(ApiSupplier apiSupplier)
+        {
+            return true;
+        }
     }
 }
