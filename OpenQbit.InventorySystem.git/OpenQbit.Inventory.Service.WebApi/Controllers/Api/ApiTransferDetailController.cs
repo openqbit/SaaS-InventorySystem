@@ -56,5 +56,18 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
             return transferDetailsList;
         }
+
+        public bool Create(ApiTransferDetail apiTransferDetail)
+        {
+            return true;
+        }
+        public bool Delete(int ID)
+        {
+            return true;
+        }
+        public bool Update(ApiTransferDetail apiTransferDetail)
+        {
+            return true;
+        }
     }
 }

@@ -48,5 +48,17 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
             return locationList;
         }
+        public bool Create(ApiLocation apiLocation)
+        {
+            return true;
+        }
+        public bool Delete(int ID)
+        {
+            return true;
+        }
+        public bool Update(ApiLocation apiLocation)
+        {
+            return true;
+        }
     }
 }
