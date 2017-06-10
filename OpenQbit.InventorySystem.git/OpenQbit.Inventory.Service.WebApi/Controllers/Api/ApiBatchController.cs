@@ -63,5 +63,21 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
             return batchList;
         }
+
+        public bool Create(ApiBatch apiBatch)
+        {
+            return true;
+        }
+
+        public bool Delete(int ID)
+        {
+            return true;
+        }
+
+        public  bool Update(ApiBatch apiBatch)
+        {
+            return true;
+
+        }
     }
 }

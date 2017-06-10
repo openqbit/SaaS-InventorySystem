@@ -52,5 +52,21 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
             return distributorList;
         }
+
+        public bool Create(ApiDistributer apiDistributer)
+        {
+            return true;
+        }
+
+        public bool Delete(int ID)
+        {
+            return true;
+        }
+
+        public bool Update(ApiDistributer apiDistributer)
+        {
+            return true;
+
+        }
     }
 }

@@ -56,5 +56,21 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
             return damageList;
         }
+
+        public bool Create(ApiDamage apiDamage)
+        {
+            return true;
+        }
+
+        public bool Delete(int ID)
+        {
+            return true;
+        }
+
+        public bool Update(ApiDamage apiDamage)
+        {
+            return true;
+
+        }
     }
 }
