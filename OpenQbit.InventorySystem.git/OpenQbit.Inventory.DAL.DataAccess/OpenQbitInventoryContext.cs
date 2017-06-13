@@ -9,9 +9,9 @@ using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.DAL.DataAccess
 {
-    class OpenQbitInventoryContext : DbContext
+    public class OpenQbitInventoryContext : DbContext
     {
-        public OpenQbitInventoryContext() : base("OpenQbitInventoryDb")
+        public OpenQbitInventoryContext() : base("OpenQbitInventoryDb-local")
         {
             Configuration.ProxyCreationEnabled = false;
         }
