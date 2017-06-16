@@ -13,6 +13,8 @@ namespace OpenQbit.Inventory.Common.Models
         public bool Active { get; set; }
         public int reOrder { get; set; }
 
+        public int CustomerID { get; set; }
+        public virtual Customer customer { get; set; }
         public virtual ICollection<Batch> Batchs { get; set; }
     }
 }

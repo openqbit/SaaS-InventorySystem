@@ -10,5 +10,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Models.Api
         public int ID { get; set; }
         public string Name { get; set; }
         public string Telephone { get; set; }
+
+        public int CustomerID { get; set; }
     }
 }

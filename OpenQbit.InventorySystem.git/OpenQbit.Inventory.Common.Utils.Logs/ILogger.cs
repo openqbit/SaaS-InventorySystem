@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OpenQbit.Inventory.DAL.DataAccess.Contr
+namespace OpenQbit.Inventory.Common.Utils.Logs
 {
-    interface OpenQbitInventoryContext
+    public interface ILogger
     {
+        bool LogError(string err);
     }
 }

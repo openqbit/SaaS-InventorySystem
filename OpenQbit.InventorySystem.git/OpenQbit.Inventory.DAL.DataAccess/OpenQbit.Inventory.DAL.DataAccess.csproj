@@ -49,18 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201705221037090_Create_Database.cs" />
-    <Compile Include="Migrations\201705221037090_Create_Database.Designer.cs">
-      <DependentUpon>201705221037090_Create_Database.cs</DependentUpon>
+    <Compile Include="Migrations\201706100559497_Modify_Database.cs" />
+    <Compile Include="Migrations\201706100559497_Modify_Database.Designer.cs">
+      <DependentUpon>201706100559497_Modify_Database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OpenQbitInventoryContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenQbit.Inventory.Common.Models\OpenQbit.Inventory.Common.Models.csproj">
       <Project>{d31dda99-e1ef-402d-ade5-59b7adc38922}</Project>
       <Name>OpenQbit.Inventory.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenQbit.Inventory.DAL.DataAccess.Contr\OpenQbit.Inventory.DAL.DataAccess.Contr.csproj">
+      <Project>{f63ea259-b2d9-45d9-a02d-75b387413687}</Project>
+      <Name>OpenQbit.Inventory.DAL.DataAccess.Contr</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -68,8 +73,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705221037090_Create_Database.resx">
-      <DependentUpon>201705221037090_Create_Database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706100559497_Modify_Database.resx">
+      <DependentUpon>201706100559497_Modify_Database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

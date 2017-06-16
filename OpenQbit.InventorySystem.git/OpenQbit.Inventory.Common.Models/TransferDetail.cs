@@ -10,6 +10,8 @@ namespace OpenQbit.Inventory.Common.Models
     {
         public int ID { get; set; }
 
+        public int CustomerID { get; set; }
+        public virtual Customer customer { get; set; }
         public int BatchID { get; set; }
         public virtual Batch Batch { get; set; }
         public int LocationID { get; set; }

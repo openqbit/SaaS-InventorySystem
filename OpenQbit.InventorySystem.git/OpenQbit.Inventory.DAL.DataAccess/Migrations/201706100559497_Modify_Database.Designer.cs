@@ -7,13 +7,13 @@ namespace OpenQbit.Inventory.DAL.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Create_Database : IMigrationMetadata
+    public sealed partial class Modify_Database : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Create_Database));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Modify_Database));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705221037090_Create_Database"; }
+            get { return "201706100559497_Modify_Database"; }
         }
         
         string IMigrationMetadata.Source

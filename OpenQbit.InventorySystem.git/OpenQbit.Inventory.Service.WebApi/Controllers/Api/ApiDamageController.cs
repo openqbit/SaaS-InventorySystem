@@ -22,6 +22,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
             return damage;
         }
 
+        
         public List<ApiDamage> GetList()
         {
             List<ApiDamage> damageList = new List<ApiDamage>();

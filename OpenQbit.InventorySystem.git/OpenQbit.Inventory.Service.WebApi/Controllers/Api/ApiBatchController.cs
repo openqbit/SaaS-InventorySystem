@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 using OpenQbit.Inventory.Service.WebApi.Models.Api;
 
@@ -10,7 +9,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
     public class ApiBatchController : ApiController
     {
         public ApiBatch Get(int ID)
-        {
+        {       
             ApiBatch batch = new ApiBatch
             {
                 ID = 1,
