@@ -11,7 +11,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-
+            
             return View();
         }
     }

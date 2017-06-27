@@ -55,5 +55,21 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
             return itemList;
         }
+
+        public bool Create(ApiItem apiItem)
+        {
+            return true;
+        }
+
+        public bool Delete(int ID)
+        {
+            return true;
+        }
+
+        public bool Update(ApiItem apiItem)
+        {
+            return true;
+
+        }
     }
 }

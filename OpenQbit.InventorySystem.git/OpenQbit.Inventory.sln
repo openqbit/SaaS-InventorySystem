@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 Common", "0 Common", "{8B8FBCD8-9159-4F26-A452-EB2CEA886FA6}"
 EndProject
@@ -23,7 +23,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.Inventory.DAL.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.Inventory.Service.WebApi", "OpenQbit.Inventory.Service.WebApi\OpenQbit.Inventory.Service.WebApi.csproj", "{B78ADE12-B50D-43BC-AF33-623B6AB00B8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.Inventory.Test.UnitTest", "OpenQbit.Inventory.Test.UnitTest\OpenQbit.Inventory.Test.UnitTest.csproj", "{15EA6416-6C5D-4A02-AB15-01BBBEFC4A4E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{33C7FFA7-7D22-4FB9-A3E0-45EE94885FD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.Inventory.Common.Utils.Logs", "OpenQbit.Inventory.Common.Utils.Logs\OpenQbit.Inventory.Common.Utils.Logs.csproj", "{5E1F76E4-346A-4DC5-B662-B5C101BA420C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.Inventory.Common.Ioc", "OpenQbit.Inventory.Common.Ioc\OpenQbit.Inventory.Common.Ioc.csproj", "{502041AF-D1D8-48DC-A033-55EBD13C0A75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +51,14 @@ Global
 		{B78ADE12-B50D-43BC-AF33-623B6AB00B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B78ADE12-B50D-43BC-AF33-623B6AB00B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B78ADE12-B50D-43BC-AF33-623B6AB00B8A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15EA6416-6C5D-4A02-AB15-01BBBEFC4A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15EA6416-6C5D-4A02-AB15-01BBBEFC4A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15EA6416-6C5D-4A02-AB15-01BBBEFC4A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15EA6416-6C5D-4A02-AB15-01BBBEFC4A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E1F76E4-346A-4DC5-B662-B5C101BA420C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E1F76E4-346A-4DC5-B662-B5C101BA420C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E1F76E4-346A-4DC5-B662-B5C101BA420C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E1F76E4-346A-4DC5-B662-B5C101BA420C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{502041AF-D1D8-48DC-A033-55EBD13C0A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{502041AF-D1D8-48DC-A033-55EBD13C0A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{502041AF-D1D8-48DC-A033-55EBD13C0A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{502041AF-D1D8-48DC-A033-55EBD13C0A75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +68,8 @@ Global
 		{F0E7D06E-236D-4EEE-8876-F73F300A161D} = {B600BFBE-8C16-44D6-8627-9CFDD7006AA6}
 		{F63EA259-B2D9-45D9-A02D-75B387413687} = {B600BFBE-8C16-44D6-8627-9CFDD7006AA6}
 		{B78ADE12-B50D-43BC-AF33-623B6AB00B8A} = {E6886CAB-326C-416A-80A2-94AE55E1C5B4}
-		{15EA6416-6C5D-4A02-AB15-01BBBEFC4A4E} = {077B2B9E-C930-4554-850A-19749CA69BA6}
+		{33C7FFA7-7D22-4FB9-A3E0-45EE94885FD2} = {8B8FBCD8-9159-4F26-A452-EB2CEA886FA6}
+		{5E1F76E4-346A-4DC5-B662-B5C101BA420C} = {33C7FFA7-7D22-4FB9-A3E0-45EE94885FD2}
+		{502041AF-D1D8-48DC-A033-55EBD13C0A75} = {8B8FBCD8-9159-4F26-A452-EB2CEA886FA6}
 	EndGlobalSection
 EndGlobal

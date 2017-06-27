@@ -22,6 +22,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
             return damage;
         }
 
+        
         public List<ApiDamage> GetList()
         {
             List<ApiDamage> damageList = new List<ApiDamage>();
@@ -55,6 +56,22 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
             damageList.Add(damage3);
 
             return damageList;
+        }
+
+        public bool Create(ApiDamage apiDamage)
+        {
+            return true;
+        }
+
+        public bool Delete(int ID)
+        {
+            return true;
+        }
+
+        public bool Update(ApiDamage apiDamage)
+        {
+            return true;
+
         }
     }
 }

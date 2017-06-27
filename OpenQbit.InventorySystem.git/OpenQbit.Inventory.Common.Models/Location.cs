@@ -11,6 +11,8 @@ namespace OpenQbit.Inventory.Common.Models
         public int ID { get; set; }
         public string Name { get; set; }
 
+        public int CustomerID { get; set; }
+        public virtual Customer customer { get; set; }
         public virtual ICollection<TransferDetail> TransferDetails { get; set; }
     }
 }
