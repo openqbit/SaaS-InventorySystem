@@ -46,6 +46,10 @@
     <Compile Include="IReturnManager.cs" />
     <Compile Include="ISupplierManager.cs" />
     <Compile Include="ITransferDetailManager.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="IDistributerManager.cs" />
+    <Compile Include="IItemManager.cs" />
+    <Compile Include="ILocationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

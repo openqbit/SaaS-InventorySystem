@@ -56,6 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="DistributerManager.cs" />
+    <Compile Include="ItemManager.cs" />
+    <Compile Include="LocationManager.cs" />
     <Compile Include="BatchManager.cs" />
     <Compile Include="CustomerManager.cs" />
     <Compile Include="DamageManager.cs" />
@@ -104,6 +108,28 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenQbit.Inventory.BLL.BusinessService.Contr\OpenQbit.Inventory.BLL.BusinessService.Contr.csproj">
+      <Project>{070e24f3-8f4a-461e-8c0e-90085fb0a490}</Project>
+      <Name>OpenQbit.Inventory.BLL.BusinessService.Contr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenQbit.Inventory.Common.Models\OpenQbit.Inventory.Common.Models.csproj">
+      <Project>{d31dda99-e1ef-402d-ade5-59b7adc38922}</Project>
+      <Name>OpenQbit.Inventory.Common.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenQbit.Inventory.Common.Utils.Logs\OpenQbit.Inventory.Common.Utils.Logs.csproj">
+      <Project>{5e1f76e4-346a-4dc5-b662-b5c101ba420c}</Project>
+      <Name>OpenQbit.Inventory.Common.Utils.Logs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenQbit.Inventory.DAL.DataAccess.Contr\OpenQbit.Inventory.DAL.DataAccess.Contr.csproj">
+      <Project>{f63ea259-b2d9-45d9-a02d-75b387413687}</Project>
+      <Name>OpenQbit.Inventory.DAL.DataAccess.Contr</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
