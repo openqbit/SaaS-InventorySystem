@@ -29,10 +29,7 @@ namespace OpenQbit.Inventory.DAL.DataAccess
             return _db.Set<T>().ToList();
         }
 
-        public T FindByID<T>(int id) where T : class
-        {
-            return _db.Set<T>().FirstOrDefault<T>();
-        }
+        
 
         public T Find<T>(Expression<Func<T, bool>> predicate) where T : class
         {
@@ -44,10 +41,6 @@ namespace OpenQbit.Inventory.DAL.DataAccess
             return _db.Set<T>().Where<T>(predicate).ToList();
         }
 
-        public T FindByID<T>(int id) where T : class
-        {
-            return _db.Set<T>().Find(id);
-        }
 
         public bool Create<T>(T obj) where T : class
         {

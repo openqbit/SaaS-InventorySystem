@@ -51,7 +51,7 @@ namespace OpenQbit.Inventory.BLL.BusinessService
         {
             _logger.LogError("No Damage Found");
 
-            return _repository.FindByID<Damage>(id);
+            return _repository.FindById<Damage>(id);
         }
 
         public List<Damage> getAllDamages()

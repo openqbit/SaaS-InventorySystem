@@ -51,7 +51,7 @@ namespace OpenQbit.Inventory.BLL.BusinessService
         {
             _logger.LogError("No Batch Found");
 
-            return _repository.FindByID<Batch>(id);
+            return _repository.FindById<Batch>(id);
         }
 
         public List<Batch> GetAllBatches()

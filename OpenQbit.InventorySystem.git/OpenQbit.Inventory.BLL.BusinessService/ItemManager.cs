@@ -49,7 +49,7 @@ namespace OpenQbit.Inventory.BLL.BusinessService
         {
             _log.LogError("No Item Found");
 
-            return _repository.FindByID<Item>(id);
+            return _repository.FindById<Item>(id);
         }
 
         public List<Item> GetAllItems()

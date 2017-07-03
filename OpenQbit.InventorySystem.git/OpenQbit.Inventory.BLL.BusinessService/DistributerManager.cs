@@ -49,7 +49,7 @@ namespace OpenQbit.Inventory.BLL.BusinessService
         {
             _log.LogError("No Distributer Found");
 
-            return _repository.FindByID<Distributer>(id);
+            return _repository.FindById<Distributer>(id);
         }
 
         public List<Distributer> GetAllDistributers()

@@ -14,7 +14,6 @@ namespace OpenQbit.Inventory.DAL.DataAccess.Contr
         T FindById<T>(int id) where T : class;
         T Find<T>(Expression<Func<T, bool>> predicate) where T : class;
         List<T> FindList<T>(Expression<Func<T, bool>> predicate) where T : class;
-        T FindByID<T>(int id) where T : class;
         bool Create<T>(T obj) where T : class;
         bool Update<T>(T obj) where T : class;
         bool Delete<T>(T obj) where T : class;
