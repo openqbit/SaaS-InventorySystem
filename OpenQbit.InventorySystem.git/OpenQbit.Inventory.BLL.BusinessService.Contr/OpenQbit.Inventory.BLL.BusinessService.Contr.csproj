@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBatchManager.cs" />
+    <Compile Include="ICustomerManager.cs" />
+    <Compile Include="IDamageManager.cs" />
     <Compile Include="IReturnManager.cs" />
     <Compile Include="ISupplierManager.cs" />
     <Compile Include="ITransferDetailManager.cs" />
