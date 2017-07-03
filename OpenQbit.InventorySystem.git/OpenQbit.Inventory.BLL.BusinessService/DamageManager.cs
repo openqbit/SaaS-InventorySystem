@@ -25,31 +25,40 @@ namespace OpenQbit.Inventory.BLL.BusinessService
             this._logger = logger;
         }
 
-        [Dependency]
-        public IRepository Repository
-        {
-            get { return _repository; }
-            set { _repository = value; }
-        }
-
-        [Dependency]
-        public ILogger Logger
-        {
-            get { return _logger; }
-            set { _logger = value; }
-        }
-
-        [InjectionMethod]
-        public void SetRepository(IRepository repository)
-        {
-            _repository = repository;
-        }
 
         public bool RecoredDamage(Damage damage)
         {
-            _logger.LogError("");
+            _logger.LogError("Damage Add Failed");
 
             return _repository.Create<Damage>(damage);
+        }
+
+        public bool DeleteDamage(Damage damage)
+        {
+            _logger.LogError("Damage Delete Failed");
+
+            return _repository.Delete<Damage>(damage);
+        }
+
+        public bool UpdateDamage(Damage damage)
+        {
+            _logger.LogError("Damage Update Failed");
+
+            return _repository.Update<Damage>(damage);
+        }
+
+        public Damage FindDamageByID(int id)
+        {
+            _logger.LogError("No Damage Found");
+
+            return _repository.FindByID<Damage>(id);
+        }
+
+        public List<Damage> getAllDamages()
+        {
+            _logger.LogError("Get All Damages Failed");
+
+            return _repository.GetAll<Damage>();
         }
     }
 }

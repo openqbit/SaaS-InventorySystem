@@ -10,5 +10,13 @@ namespace OpenQbit.Inventory.BLL.BusinessService.Contr
     public interface IItemManager
     {
         bool RecordItem(Item item);
+
+        bool UpdateItem(Item item);
+
+        bool DeleteItem(Item item);
+
+        Item FindItemByID(int id);
+
+        List<Item> GetAllItems();
     }
 }

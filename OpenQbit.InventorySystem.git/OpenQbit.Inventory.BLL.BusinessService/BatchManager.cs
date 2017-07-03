@@ -25,31 +25,40 @@ namespace OpenQbit.Inventory.BLL.BusinessService
             this._logger = logger;
         }
 
-        [Dependency]
-        public IRepository Repository
-        {
-            get { return _repository; }
-            set { _repository = value; }
-        }
-
-        [Dependency]
-        public ILogger Logger
-        {
-            get { return _logger; }
-            set { _logger = value; }
-        }
-
-        [InjectionMethod]
-        public void SetRepository(IRepository repository)
-        {
-            _repository = repository;
-        }
 
         public bool RecoredBatch(Batch batch)
         {
-            _logger.LogError("");
+            _logger.LogError("Batch Add Failed");
 
             return _repository.Create<Batch>(batch);
+        }
+
+        public bool DeleteBatch(Batch batch)
+        {
+            _logger.LogError("Batch Delete Failed");
+
+            return _repository.Delete<Batch>(batch);
+        }
+
+        public bool UpdateBatch(Batch batch)
+        {
+            _logger.LogError("Batch Update Failed");
+
+            return _repository.Update<Batch>(batch);
+        }
+
+        public Batch FindBatchByID(int id)
+        {
+            _logger.LogError("No Batch Found");
+
+            return _repository.FindByID<Batch>(id);
+        }
+
+        public List<Batch> GetAllBatches()
+        {
+            _logger.LogError("Get All Batches Failed");
+
+            return _repository.GetAll<Batch>();
         }
     }
 }

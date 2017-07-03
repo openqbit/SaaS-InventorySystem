@@ -10,5 +10,13 @@ namespace OpenQbit.Inventory.BLL.BusinessService.Contr
     public interface IDamageManager
     {
         bool RecoredDamage(Damage damage);
+
+        bool UpdateDamage(Damage damage);
+
+        bool DeleteDamage(Damage damage);
+
+        Damage FindDamageByID(int id);
+
+        List<Damage> getAllDamages();
     }
 }
