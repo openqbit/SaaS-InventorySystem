@@ -10,5 +10,13 @@ namespace OpenQbit.Inventory.BLL.BusinessService.Contr
     public interface IBatchManager
     {
         bool RecoredBatch(Batch batch);
+
+        bool DeleteBatch(Batch batch);
+
+        bool UpdateBatch(Batch batch);
+
+        Batch FindBatchByID(int id);
+
+        List<Batch> GetAllBatches();
     }
 }

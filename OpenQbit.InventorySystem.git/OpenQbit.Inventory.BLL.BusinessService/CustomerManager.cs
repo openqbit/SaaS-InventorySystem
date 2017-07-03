@@ -25,22 +25,7 @@ namespace OpenQbit.Inventory.BLL.BusinessService
             this._logger = logger;
         }
 
-        [Dependency]
-        public IRepository Repository
-        {
-            get { return _repository; }
-            set { _repository = value; }
-        }
 
-        [Dependency]
-        public ILogger Logger
-        {
-            get { return _logger; }
-            set { _logger = value; }
-        }
-
- 
-    
         public bool RecoredCustomer(Customer customer)
         {
             _logger.LogError("");

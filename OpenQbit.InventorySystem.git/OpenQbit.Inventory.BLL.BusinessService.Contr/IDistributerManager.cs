@@ -10,5 +10,13 @@ namespace OpenQbit.Inventory.BLL.BusinessService.Contr
     public interface IDistributerManager
     {
         bool RecordDistributer(Distributer distributer);
+
+        bool UpdateDistributer(Distributer distributer);
+
+        bool DeleteDistributer(Distributer distributer);
+
+        Distributer FindDistributerByID(int id);
+
+        List<Distributer> GetAllDistributers();
     }
 }
