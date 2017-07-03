@@ -44,6 +44,11 @@ namespace OpenQbit.Inventory.DAL.DataAccess
             return _db.Set<T>().Where<T>(predicate).ToList();
         }
 
+        public T FindByID<T>(int id) where T : class
+        {
+            return _db.Set<T>().Find(id);
+        }
+
         public bool Create<T>(T obj) where T : class
         {
            // _db.Item.Add()
@@ -54,6 +59,7 @@ namespace OpenQbit.Inventory.DAL.DataAccess
             }
             catch (Exception edb)
             {
+                
                 return false;
             }
 

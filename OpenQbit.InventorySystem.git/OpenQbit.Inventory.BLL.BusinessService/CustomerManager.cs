@@ -25,12 +25,47 @@ namespace OpenQbit.Inventory.BLL.BusinessService
             this._logger = logger;
         }
 
-
+    
         public bool RecoredCustomer(Customer customer)
         {
             _logger.LogError("");
 
             return _repository.Create<Customer>(customer);
+        }
+
+        public bool UpdateCustomer(Customer customer)
+        {
+            _logger.LogError("");
+
+            return _repository.Update<Customer>(customer);
+        }
+
+        public bool DeleteCustomer(Customer customer)
+        {
+            _logger.LogError("");
+
+            return _repository.Delete<Customer>(customer);
+        }
+
+        public Customer FindCustomerByID(int id)
+        {
+            _logger.LogError("");
+
+            return _repository.FindByID<Customer>(id);
+        }
+
+        public List<Customer> GetAllCustomers()
+        {
+            _logger.LogError("");
+
+            return _repository.GetAll<Customer>();
+        }
+
+        public Customer SearchCustomerByUserName(string userName)
+        {
+            _logger.LogError("");
+
+            return _repository.Find<Customer>(C =>C.UserName == userName);
         }
     }
 }
