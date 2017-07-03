@@ -51,7 +51,7 @@ namespace OpenQbit.Inventory.BLL.BusinessService
         {
             _logger.LogError("");
 
-            return _repository.FindById<Customer>(id);
+            return _repository.FindByID<Customer>(id);
         }
 
         public List<Customer> GetAllCustomers()
