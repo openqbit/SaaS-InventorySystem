@@ -10,5 +10,9 @@ namespace OpenQbit.Inventory.BLL.BusinessService.Contr
     public interface ISupplierManager
     {
         bool RecoredSupplier(Supplier supplier);
+        bool UpdateSupplier(Supplier supplier);
+        bool DeleteSupplier(Supplier supplier);
+        List<Supplier> getAllSupplier();
+        Supplier FindSupplierById(int ID);
     }
 }

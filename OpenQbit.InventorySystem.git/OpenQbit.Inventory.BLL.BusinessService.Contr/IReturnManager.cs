@@ -10,5 +10,9 @@ namespace OpenQbit.Inventory.BLL.BusinessService.Contr
     public interface IReturnManager
     {
         bool RecoredReturn(Return returns);
+        bool UpdateReturn(Return returns);
+        bool DeleteReturn(Return returns);
+        List<Return> getAllReturn();
+        Return FindReturnByID(int ID);
     }
 }

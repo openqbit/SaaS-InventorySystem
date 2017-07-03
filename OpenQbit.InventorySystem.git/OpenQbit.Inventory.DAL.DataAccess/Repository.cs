@@ -94,5 +94,10 @@ namespace OpenQbit.Inventory.DAL.DataAccess
                 return false;
             }
         }
+
+        public T FindById<T>(int id) where T : class
+        {
+            return _db.Set<T>().Find(id);
+        }
     }
 }

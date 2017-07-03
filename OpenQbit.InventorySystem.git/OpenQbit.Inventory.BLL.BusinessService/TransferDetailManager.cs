@@ -24,31 +24,40 @@ namespace OpenQbit.Inventory.BLL.BusinessService.Contr
             this._log = log;
         }
 
-        [Dependency]
-        public IRepository Repository
-        {
-            get { return _repository; }
-            set { _repository = value; }
-        }
-
-        [Dependency]
-        public ILogger Logger
-        {
-            get { return _log; }
-            set { _log = value; }
-        }
-
-        [InjectionMethod]
-        public void SetRepository(IRepository repository)
-        {
-            _repository = repository;
-        }
 
         public bool RecoredTransferDetail(TransferDetail trensferdetail)
         {
-            _log.LogError("");
+            _log.LogError("Transfer Detail add fail");
 
             return _repository.Create<TransferDetail>(trensferdetail);
+        }
+
+        public bool UpdateTransferDetail(TransferDetail trensferdetail)
+        {
+            _log.LogError("Transfer Detail update fail");
+
+            return _repository.Update<TransferDetail>(trensferdetail);
+        }
+
+        public bool DeleteTransferDetail(TransferDetail trensferdetail)
+        {
+            _log.LogError("Transfer Detail delete fail");
+
+            return _repository.Delete<TransferDetail>(trensferdetail);
+        }
+
+        public List<TransferDetail> getAllTransferDetail()
+        {
+            _log.LogError("Transfer Detail list not found ");
+
+            return _repository.GetAll<TransferDetail>();
+        }
+
+        public TransferDetail FindTransferDetail(int ID)
+        {
+            _log.LogError("Transfer Detail list not found ");
+
+            return _repository.FindById<TransferDetail>(ID);
         }
     }
 }

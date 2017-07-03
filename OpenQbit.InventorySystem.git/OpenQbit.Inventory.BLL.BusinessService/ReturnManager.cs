@@ -24,33 +24,41 @@ namespace OpenQbit.Inventory.BLL.BusinessService
             this._log = log;
         }
 
-        [Dependency]
-        public IRepository Repository
-        {
-            get { return _repository; }
-            set { _repository = value; }
-        }
-
-        [Dependency]
-        public ILogger Logger
-        {
-            get { return _log; }
-            set { _log = value; }
-        }
-
-        [InjectionMethod]
-        public void SetRepository(IRepository repository)
-        {
-            _repository = repository;
-        }
-
-
-
+       
         public bool RecoredReturn(Return returns)
         {
-            _log.LogError("");
+            _log.LogError("return add fail");
 
             return _repository.Create<Return>(returns);
+        }
+
+        public bool UpdateReturn(Return returns)
+        {
+
+            _log.LogError("return update fail");
+
+            return _repository.Update<Return>(returns);
+        }
+
+        public bool DeleteReturn(Return returns)
+        {
+            _log.LogError("return delete fail");
+
+            return _repository.Delete<Return>(returns);
+        }
+
+        public List<Return> getAllReturn()
+        {
+            _log.LogError("no returns list found");
+
+            return _repository.GetAll<Return>();
+        }
+
+        public Return FindReturnByID(int ID)
+        {
+            _log.LogError("no returns found");
+
+            return _repository.FindById<Return>(ID);
         }
     }
 }

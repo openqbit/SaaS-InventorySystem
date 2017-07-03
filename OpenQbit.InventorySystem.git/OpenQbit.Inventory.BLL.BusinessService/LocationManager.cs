@@ -24,30 +24,44 @@ namespace OpenQbit.Inventory.BLL.BusinessService
             this._log = log;
         }
 
-        [Dependency]
-        public IRepository Repository
-        {
-            get { return _repository; }
-            set { _repository = value; }
-        }
-
-        [Dependency]
-        public ILogger logger
-        {
-            get { return _log; }
-            set { _log = value; }
-        }
-
-        [InjectionMethod]
-        public void SetRepository(IRepository repository)
-        {
-            _repository = repository;
-        }
 
         public bool RecordLocation(Location location)
         {
-            _log.LogError("");
+            _log.LogError("Not Added Location");
             return _repository.Create<Location>(location);
         }
+
+        public bool UpdateLocation(Location location)
+        {
+            _log.LogError("Not Updated Location");
+            return _repository.Update<Location>(location);
+        }
+
+        public bool DeleteLocation(Location location)
+        {
+            _log.LogError("Not Deleted Location");
+            return _repository.Delete<Location>(location);
+        }
+
+        public List<Location> getAllLocation()
+        {
+            _log.LogError("Loction list not found");
+            return _repository.GetAll<Location>();
+        }
+
+        //public Location FindLocation(int ID)
+        //{
+        //    _log.LogError("Loction  not found");
+        //    return _repository.Find<Location>(L => L.ID == ID);
+        //}
+
+        
+
+        public Location FindLocationbyID(int ID)
+        {
+            _log.LogError("Loction  not found");
+            return _repository.FindById<Location>(ID);
+        }
+
     }
 }
