@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using OpenQbit.Inventory.Service.WebApi.Models.Api;
+using OpenQbit.Inventory.BLL.BusinessService.Contr;
+using OpenQbit.Inventory.Common.Ioc;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
+    [Authorize]
     public class ApiBatchController : ApiController
     {
+        
         public ApiBatch Get(int ID)
-        {       
+        {
+            //User.Identity.
+            //ICustomerManager CustomerManager = new CustomerManager(( repository,  logger);
+            //ICustomerManager CustomerManager = UnityResolver.Resolve<ICustomerManager>();
+            //CustomerManager.RecoredCustomer()
             ApiBatch batch = new ApiBatch
             {
                 ID = 1,

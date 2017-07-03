@@ -7,12 +7,22 @@ using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System.Data.Entity;
 using OpenQbit.Inventory.DAL.DataAccess.Contr;
+using OpenQbit.Inventory.Common.Utils.Logs;
+using Microsoft.Practices.Unity;
 
 namespace OpenQbit.Inventory.DAL.DataAccess
 {
     public class Repository : IRepository
     {
         private OpenQbitInventoryContext _db = new OpenQbitInventoryContext();
+
+        private ILogger _logger;
+
+        [InjectionConstructor]
+        public Repository( ILogger logger)
+        {
+            this._logger = logger;
+        }
 
         public List<T> GetAll<T>() where T : class
         {
@@ -31,7 +41,7 @@ namespace OpenQbit.Inventory.DAL.DataAccess
 
         public bool Create<T>(T obj) where T : class
         {
-
+           // _db.Item.Add()
             try
             {
                 _db.Set<T>().Add(obj);

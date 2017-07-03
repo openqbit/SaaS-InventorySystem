@@ -301,6 +301,16 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenQbit.Inventory.BLL.BusinessService.Contr\OpenQbit.Inventory.BLL.BusinessService.Contr.csproj">
+      <Project>{070e24f3-8f4a-461e-8c0e-90085fb0a490}</Project>
+      <Name>OpenQbit.Inventory.BLL.BusinessService.Contr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenQbit.Inventory.Common.Ioc\OpenQbit.Inventory.Common.Ioc.csproj">
+      <Project>{502041af-d1d8-48dc-a033-55ebd13c0a75}</Project>
+      <Name>OpenQbit.Inventory.Common.Ioc</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

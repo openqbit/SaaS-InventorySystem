@@ -39,12 +39,8 @@ namespace OpenQbit.Inventory.BLL.BusinessService
             set { _logger = value; }
         }
 
-        [InjectionMethod]
-        public void SetRepository(IRepository repository)
-        {
-            _repository = repository;
-        }
-
+ 
+    
         public bool RecoredCustomer(Customer customer)
         {
             _logger.LogError("");

@@ -60,6 +60,14 @@
     <Compile Include="UnityResolver.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OpenQbit.Inventory.BLL.BusinessService.Contr\OpenQbit.Inventory.BLL.BusinessService.Contr.csproj">
+      <Project>{070E24F3-8F4A-461E-8C0E-90085FB0A490}</Project>
+      <Name>OpenQbit.Inventory.BLL.BusinessService.Contr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenQbit.Inventory.BLL.BusinessService\OpenQbit.Inventory.BLL.BusinessService.csproj">
+      <Project>{D43B858D-C8D6-4369-8BE7-FCCA1521BC47}</Project>
+      <Name>OpenQbit.Inventory.BLL.BusinessService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenQbit.Inventory.Common.Models\OpenQbit.Inventory.Common.Models.csproj">
       <Project>{d31dda99-e1ef-402d-ade5-59b7adc38922}</Project>
       <Name>OpenQbit.Inventory.Common.Models</Name>

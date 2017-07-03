@@ -9,6 +9,8 @@ using OpenQbit.Inventory.DAL.DataAccess;
 using OpenQbit.Inventory.DAL.DataAccess.Contr;
 
 using Microsoft.Practices.Unity;
+using OpenQbit.Inventory.BLL.BusinessService.Contr;
+using OpenQbit.Inventory.BLL.BusinessService;
 
 namespace OpenQbit.Inventory.Common.Ioc
 {
@@ -19,7 +21,9 @@ namespace OpenQbit.Inventory.Common.Ioc
         public static void Register()
         {
             container.RegisterType<IRepository, Repository>();
-            container.RegisterType<ILogger, LoggerB>();
+            container.RegisterType<ILogger, Logger>();
+            container.RegisterType<ICustomerManager, CustomerManager>();
+            
         }
 
         public static T Resolve<T>()
