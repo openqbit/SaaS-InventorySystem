@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.BLL.BusinessService.Contr
 {
-    public class Class1
+    public interface IDamageManager
     {
+        bool RecoredDamage(Damage damage);
     }
 }
