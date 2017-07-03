@@ -7,8 +7,7 @@ using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.BLL.BusinessService.Contr
 {
-    public interface ISupplierManager
+    public class Class1
     {
-        bool RecoredSupplier(Supplier supplier);
     }
 }
