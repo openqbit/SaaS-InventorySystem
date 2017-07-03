@@ -28,5 +28,7 @@ namespace OpenQbit.Inventory.DAL.DataAccess
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        public System.Data.Entity.DbSet<OpenQbit.Inventory.Common.Models.Customer> Customers { get; set; }
     }
 }

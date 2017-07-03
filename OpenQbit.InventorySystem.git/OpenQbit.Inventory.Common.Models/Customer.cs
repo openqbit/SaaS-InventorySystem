@@ -10,6 +10,8 @@ namespace OpenQbit.Inventory.Common.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
 
         public virtual ICollection<Batch> Batch { get; set; }
         public virtual ICollection<Damage> Damage { get; set; }

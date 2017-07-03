@@ -65,9 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201706100559497_Modify_Database.cs" />
-    <Compile Include="Migrations\201706100559497_Modify_Database.Designer.cs">
-      <DependentUpon>201706100559497_Modify_Database.cs</DependentUpon>
+    <Compile Include="Migrations\201707030941018_Edit Customer.cs" />
+    <Compile Include="Migrations\201707030941018_Edit Customer.Designer.cs">
+      <DependentUpon>201707030941018_Edit Customer.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OpenQbitInventoryContext.cs" />
@@ -93,8 +93,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706100559497_Modify_Database.resx">
-      <DependentUpon>201706100559497_Modify_Database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707030941018_Edit Customer.resx">
+      <DependentUpon>201707030941018_Edit Customer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
