@@ -15,7 +15,7 @@ namespace OpenQbit.Inventory.BLL.BusinessService.Contr
 
         bool UpdateCustomer(Customer customer);
 
-        Customer SearchCustomerByUserName(string userName);
+        Customer SearchCustomerByUserName(string userName, string password);
 
         Customer FindCustomerByID(int id);
 
