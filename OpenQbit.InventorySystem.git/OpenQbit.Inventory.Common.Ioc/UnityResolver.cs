@@ -23,7 +23,9 @@ namespace OpenQbit.Inventory.Common.Ioc
             container.RegisterType<IRepository, Repository>();
             container.RegisterType<ILogger, Logger>();
             container.RegisterType<ICustomerManager, CustomerManager>();
-            
+            container.RegisterType<IItemManager, ItemManager>();
+            container.RegisterType<ISupplierManager, SupplierManager>();
+
         }
 
         public static T Resolve<T>()
