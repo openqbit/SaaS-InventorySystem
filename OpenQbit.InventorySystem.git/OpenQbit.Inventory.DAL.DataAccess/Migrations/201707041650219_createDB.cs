@@ -3,7 +3,7 @@ namespace OpenQbit.Inventory.DAL.DataAccess.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class editcust : DbMigration
+    public partial class createDB : DbMigration
     {
         public override void Up()
         {
