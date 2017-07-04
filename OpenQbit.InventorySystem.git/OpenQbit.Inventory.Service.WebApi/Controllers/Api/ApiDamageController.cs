@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using OpenQbit.Inventory.Service.WebApi.Models.Api;
+using OpenQbit.Inventory.BLL.BusinessService.Contr;
+using OpenQbit.Inventory.Common.Ioc;
+using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
@@ -11,12 +14,15 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
     {
         public ApiDamage Get(int ID)
         {
+            IDamageManager damageManager = UnityResolver.Resolve<IDamageManager>();
+            Damage damageModel = damageManager.FindDamageByID(ID);
             ApiDamage damage = new ApiDamage
             {
-                ID = 1,
-                Description = "Damaged when storing",
-                Qty = 5,
-                BatchID = 1
+                ID = damageModel.ID,
+                Description = damageModel.Description,
+                Qty = damageModel.Qty,
+                BatchID = damageModel.BatchID,
+                CustomerID = damageModel.CustomerID
             };
 
             return damage;
@@ -25,52 +31,71 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
         
         public List<ApiDamage> GetList()
         {
+
+            IDamageManager damageManager = UnityResolver.Resolve<IDamageManager>();
             List<ApiDamage> damageList = new List<ApiDamage>();
+            List<Damage> damageModelList = damageManager.getAllDamages();
 
-            ApiDamage damage1 = new ApiDamage
+            foreach(Damage damageModel in damageModelList)
             {
-                ID = 1,
-                Description = "Damaged when storing",
-                Qty = 5,
-                BatchID = 1
-            };
+                ApiDamage damage = new ApiDamage
+                {
+                    ID = damageModel.ID,
+                    Description = damageModel.Description,
+                    Qty = damageModel.Qty,
+                    BatchID = damageModel.BatchID,
+                    CustomerID = damageModel.CustomerID
+                };
 
-            ApiDamage damage2 = new ApiDamage
-            {
-                ID = 2,
-                Description = "Damaged when storing",
-                Qty = 10,
-                BatchID = 2
-            };
-
-            ApiDamage damage3 = new ApiDamage
-            {
-                ID = 2,
-                Description = "Damaged when transport",
-                Qty = 8,
-                BatchID = 3
-            };
-
-            damageList.Add(damage1);
-            damageList.Add(damage2);
-            damageList.Add(damage3);
-
+                damageList.Add(damage);
+            }
+            
             return damageList;
         }
 
         public bool Create(ApiDamage apiDamage)
         {
-            return true;
+            IDamageManager damageManager = UnityResolver.Resolve<IDamageManager>();
+            Damage damage = new Damage
+            {
+                ID = apiDamage.ID,
+                Description = apiDamage.Description,
+                Qty = apiDamage.Qty,
+                BatchID = apiDamage.BatchID,
+                CustomerID = apiDamage.CustomerID
+            };
+
+            return damageManager.RecoredDamage(damage);
         }
 
-        public bool Delete(int ID)
+        public bool Delete(ApiDamage apiDamage)
         {
-            return true;
+            IDamageManager damageManager = UnityResolver.Resolve<IDamageManager>();
+            Damage damage = new Damage
+            {
+                ID = apiDamage.ID,
+                Description = apiDamage.Description,
+                Qty = apiDamage.Qty,
+                BatchID = apiDamage.BatchID,
+                CustomerID = apiDamage.CustomerID
+            };
+
+            return damageManager.DeleteDamage(damage);
         }
 
         public bool Update(ApiDamage apiDamage)
         {
-            return true;
+            IDamageManager damageManager = UnityResolver.Resolve<IDamageManager>();
+            Damage damage = new Damage
+            {
+                ID = apiDamage.ID,
+                Description = apiDamage.Description,
+                Qty = apiDamage.Qty,
+                BatchID = apiDamage.BatchID,
+                CustomerID = apiDamage.CustomerID
+            };
+
+            return damageManager.UpdateDamage(damage);
 
         }
     }

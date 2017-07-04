@@ -25,6 +25,9 @@ namespace OpenQbit.Inventory.Common.Ioc
             container.RegisterType<ICustomerManager, CustomerManager>();
             container.RegisterType<IItemManager, ItemManager>();
             container.RegisterType<ISupplierManager, SupplierManager>();
+            container.RegisterType<IBatchManager, BatchManager>();
+            container.RegisterType<IDamageManager, DamageManager>();
+            container.RegisterType<IReturnManager, ReturnManager>();
             container.RegisterType<IDistributerManager, DistributerManager>();
             container.RegisterType<ILocationManager, LocationManager>();
             container.RegisterType<ITransferDetailManager, TransferDetailManager>();

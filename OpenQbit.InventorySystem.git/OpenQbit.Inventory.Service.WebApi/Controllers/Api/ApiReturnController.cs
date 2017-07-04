@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using OpenQbit.Inventory.Service.WebApi.Models.Api;
+using OpenQbit.Inventory.BLL.BusinessService.Contr;
+using OpenQbit.Inventory.Common.Ioc;
+using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
@@ -11,13 +14,16 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
     {
         public ApiReturn Get(int ID)
         {
+            IReturnManager returnManager = UnityResolver.Resolve<IReturnManager>();
+            Return returnModel = returnManager.FindReturnByID(ID);
             ApiReturn returns = new ApiReturn
             {
-                ID = 1,
-                Description = "Dates are expired",
-                Qty = 2,
-                BatchID = 1,
-                SupplierID = 2
+                ID = returnModel.ID,
+                Description = returnModel.Description,
+                Qty = returnModel.Qty,
+                BatchID = returnModel.BatchID,
+                SupplierID = returnModel.SupplierID,
+                CustomerID = returnModel.CustomerID
             };
 
             return returns;
@@ -25,52 +31,67 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public List<ApiReturn> GetList()
         {
+            IReturnManager returnManager = UnityResolver.Resolve<IReturnManager>();
             List<ApiReturn> returnList = new List<ApiReturn>();
+            List<Return> returnModelList = new List<Return>();
 
-            ApiReturn returns1 = new ApiReturn
+            foreach(Return returnModel in returnModelList)
             {
-                ID = 1,
-                Description = "Dates are expired",
-                Qty = 3,
-                BatchID = 1,
-                SupplierID = 2
-            };
-
-            ApiReturn returns2 = new ApiReturn
-            {
-                ID = 2,
-                Description = "Dates are expired",
-                Qty = 2,
-                BatchID = 3,
-                SupplierID = 1
-            };
-
-            ApiReturn returns3 = new ApiReturn
-            {
-                ID = 3,
-                Description = "Dates are expired",
-                Qty = 5,
-                BatchID = 2,
-                SupplierID = 3
-            };
-
-            returnList.Add(returns1);
-            returnList.Add(returns2);
-            returnList.Add(returns3);
-
+                ApiReturn returns = new ApiReturn
+                {
+                    ID = returnModel.ID,
+                    Description = returnModel.Description,
+                    Qty = returnModel.Qty,
+                    BatchID = returnModel.BatchID,
+                    SupplierID = returnModel.SupplierID,
+                    CustomerID = returnModel.CustomerID
+                };
+                returnList.Add(returns);
+            }
+            
             return returnList;
         }
         public bool Create(ApiReturn apiReturn)
         {
-            return true;
+            IReturnManager returnManager = UnityResolver.Resolve<IReturnManager>();
+            Return returns = new Return
+            {
+                ID = apiReturn.ID,
+                Description = apiReturn.Description,
+                Qty = apiReturn.Qty,
+                BatchID = apiReturn.BatchID,
+                SupplierID = apiReturn.SupplierID,
+                CustomerID = apiReturn.CustomerID
+            };
+            return returnManager.RecoredReturn(returns);
         }
-        public bool Delete(int ID)
+        public bool Delete(ApiReturn apiReturn)
         {
-            return true;
+            IReturnManager returnManager = UnityResolver.Resolve<IReturnManager>();
+            Return returns = new Return
+            {
+                ID = apiReturn.ID,
+                Description = apiReturn.Description,
+                Qty = apiReturn.Qty,
+                BatchID = apiReturn.BatchID,
+                SupplierID = apiReturn.SupplierID,
+                CustomerID = apiReturn.CustomerID
+            };
+            return returnManager.DeleteReturn(returns);
         }
         public bool Update(ApiReturn apiReturn)
         {
-            return true;
+            IReturnManager returnManager = UnityResolver.Resolve<IReturnManager>();
+            Return returns = new Return
+            {
+                ID = apiReturn.ID,
+                Description = apiReturn.Description,
+                Qty = apiReturn.Qty,
+                BatchID = apiReturn.BatchID,
+                SupplierID = apiReturn.SupplierID,
+                CustomerID = apiReturn.CustomerID
+            };
+            return returnManager.UpdateReturn(returns);
         }
     }
 }
