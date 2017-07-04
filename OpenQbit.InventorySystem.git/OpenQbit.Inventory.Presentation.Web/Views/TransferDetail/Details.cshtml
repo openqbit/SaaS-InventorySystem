@@ -1,0 +1,51 @@
+﻿@model OpenQbit.Inventory.Common.Models.TransferDetail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TransferDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Batch.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Batch.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Distributer.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distributer.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
