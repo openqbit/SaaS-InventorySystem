@@ -28,6 +28,9 @@ namespace OpenQbit.Inventory.Common.Ioc
             container.RegisterType<IBatchManager, BatchManager>();
             container.RegisterType<IDamageManager, DamageManager>();
             container.RegisterType<IReturnManager, ReturnManager>();
+            container.RegisterType<IDistributerManager, DistributerManager>();
+            container.RegisterType<ILocationManager, LocationManager>();
+            container.RegisterType<ITransferDetailManager, TransferDetailManager>();
         }
 
         public static T Resolve<T>()

@@ -4,18 +4,26 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using OpenQbit.Inventory.Service.WebApi.Models.Api;
+using OpenQbit.Inventory.BLL.BusinessService.Contr;
+using OpenQbit.Inventory.Common.Ioc;
+using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
     public class ApiDistributerController : ApiController
     {
+        IDistributerManager distributorManager = UnityResolver.Resolve<IDistributerManager>();
+
         public ApiDistributer Get(int ID)
         {
+            Distributer distributer = distributorManager.FindDistributerByID(ID);
+
             ApiDistributer distributor = new ApiDistributer
             {
-                ID = 1,
-                Name = "Lasantha",
-                Telephone = "0712345678"
+                ID = distributer.ID,
+                Name = distributer.Name,
+                Telephone = distributer.Telephone,
+                CustomerID=distributer.CustomerID
             };
 
             return distributor;
@@ -23,49 +31,62 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public List<ApiDistributer> GetList()
         {
-            List<ApiDistributer> distributorList = new List<ApiDistributer>();
+            List<Distributer> distributerList = distributorManager.GetAllDistributers();
 
-            ApiDistributer distributor1 = new ApiDistributer
+            List<ApiDistributer> apiDistributorList = new List<ApiDistributer>();
+
+            foreach (Distributer distributer in distributerList)
             {
-                ID = 1,
-                Name = "Lasantha",
-                Telephone = "0712345678"
-            };
+                ApiDistributer distributor = new ApiDistributer
+                {
+                    ID = distributer.ID,
+                    Name = distributer.Name,
+                    Telephone = distributer.Telephone,
+                    CustomerID = distributer.CustomerID
+                };
 
-            ApiDistributer distributor2 = new ApiDistributer
-            {
-                ID = 2,
-                Name = "Nilantha",
-                Telephone = "0712365478"
-            };
+                apiDistributorList.Add(distributor);
+            }
 
-            ApiDistributer distributor3 = new ApiDistributer
-            {
-                ID = 2,
-                Name = "Susantha",
-                Telephone = "0712368956"
-            };
-
-            distributorList.Add(distributor1);
-            distributorList.Add(distributor2);
-            distributorList.Add(distributor3);
-
-            return distributorList;
+            return apiDistributorList;
         }
 
         public bool Create(ApiDistributer apiDistributer)
         {
-            return true;
+            Distributer distributer = new Distributer
+            {
+                ID = apiDistributer.ID,
+                Name = apiDistributer.Name,
+                Telephone = apiDistributer.Telephone,
+                CustomerID = apiDistributer.CustomerID
+            };
+            return distributorManager.RecordDistributer(distributer);
         }
 
-        public bool Delete(int ID)
+        public bool Delete(ApiDistributer apiDistributer)
         {
-            return true;
+            Distributer distributer = new Distributer
+            {
+                ID = apiDistributer.ID,
+                Name = apiDistributer.Name,
+                Telephone = apiDistributer.Telephone,
+                CustomerID = apiDistributer.CustomerID
+            };
+
+            return distributorManager.DeleteDistributer(distributer);
         }
 
         public bool Update(ApiDistributer apiDistributer)
         {
-            return true;
+            Distributer distributer = new Distributer
+            {
+                ID = apiDistributer.ID,
+                Name = apiDistributer.Name,
+                Telephone = apiDistributer.Telephone,
+                CustomerID = apiDistributer.CustomerID
+            };
+
+            return distributorManager.UpdateDistributer(distributer);
 
         }
     }
