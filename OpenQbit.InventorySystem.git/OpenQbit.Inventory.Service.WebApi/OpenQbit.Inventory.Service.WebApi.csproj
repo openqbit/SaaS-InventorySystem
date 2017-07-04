@@ -310,6 +310,10 @@
       <Project>{502041af-d1d8-48dc-a033-55ebd13c0a75}</Project>
       <Name>OpenQbit.Inventory.Common.Ioc</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OpenQbit.Inventory.Common.Models\OpenQbit.Inventory.Common.Models.csproj">
+      <Project>{D31DDA99-E1EF-402D-ADE5-59B7ADC38922}</Project>
+      <Name>OpenQbit.Inventory.Common.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

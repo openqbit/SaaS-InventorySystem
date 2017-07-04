@@ -4,61 +4,84 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using OpenQbit.Inventory.Service.WebApi.Models.Api;
+using OpenQbit.Inventory.BLL.BusinessService.Contr;
+using OpenQbit.Inventory.BLL.BusinessService;
+using OpenQbit.Inventory.Common.Ioc;
+using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
     public class ApiLocationController: ApiController
     {
+        ILocationManager locationManager = UnityResolver.Resolve<ILocationManager>();
+
         public ApiLocation Get(int ID)
         {
-            ApiLocation location = new ApiLocation
+            Location location=locationManager.FindLocationbyID(ID);
+
+            ApiLocation apiLocation = new ApiLocation
             {
-                ID=1,
-                Name="Branch"
+                ID = location.ID,
+                Name=location.Name,
+                CustomerID=location.CustomerID
             };
 
-            return location;
+            return apiLocation;
         }
 
         public List<ApiLocation> GetList()
         {
-            List<ApiLocation> locationList = new List<ApiLocation>();
+            List<Location> locationsList = locationManager.getAllLocation();
 
-            ApiLocation location1 = new ApiLocation
+            List<ApiLocation> apiLocationList = new List<ApiLocation>();
+
+            foreach (Location location in locationsList)
             {
-                ID = 1,
-                Name = "Branch"
-            };
+                ApiLocation apiLocation = new ApiLocation
+                {
+                    ID = location.ID,
+                    Name = location.Name,
+                    CustomerID = location.CustomerID
+                };
 
-            ApiLocation location2 = new ApiLocation
-            {
-                ID = 2,
-                Name = "Head Quatest"
-            };
+                apiLocationList.Add(apiLocation);
+            }
 
-            ApiLocation location3 = new ApiLocation
-            {
-                ID = 3,
-                Name = "Ware House"
-            };
-
-            locationList.Add(location1);
-            locationList.Add(location2);
-            locationList.Add(location3);
-
-            return locationList;
+            return apiLocationList;
         }
+
         public bool Create(ApiLocation apiLocation)
         {
-            return true;
+            Location location = new Location
+            {
+                ID = apiLocation.ID,
+                Name = apiLocation.Name,
+                CustomerID = apiLocation.CustomerID
+            };
+
+            return locationManager.RecordLocation(location);
         }
-        public bool Delete(int ID)
+        public bool Delete(ApiLocation apiLocation)
         {
-            return true;
+            Location location = new Location
+            {
+                ID = apiLocation.ID,
+                Name = apiLocation.Name,
+                CustomerID = apiLocation.CustomerID
+            };
+
+            return locationManager.DeleteLocation(location);
         }
         public bool Update(ApiLocation apiLocation)
         {
-            return true;
+            Location location = new Location
+            {
+                ID = apiLocation.ID,
+                Name = apiLocation.Name,
+                CustomerID = apiLocation.CustomerID
+            };
+
+            return locationManager.UpdateLocation(location);
         }
     }
 }
