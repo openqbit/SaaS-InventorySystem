@@ -212,6 +212,7 @@
     <Compile Include="Controllers\Api\ApiDistributerController.cs" />
     <Compile Include="Controllers\Api\ApiItemController.cs" />
     <Compile Include="Controllers\Api\ApiLocationController.cs" />
+    <Compile Include="Controllers\Api\ApiLogginConttroller.cs" />
     <Compile Include="Controllers\Api\ApiReturnController.cs" />
     <Compile Include="Controllers\Api\ApiSupplierController.cs" />
     <Compile Include="Controllers\Api\ApiTransferDetailController.cs" />
