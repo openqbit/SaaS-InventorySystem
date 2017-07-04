@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using OpenQbit.Inventory.Service.WebApi.Models.Api;
+using OpenQbit.Inventory.BLL.BusinessService.Contr;
+using OpenQbit.Inventory.Common.Ioc;
+using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
@@ -11,13 +14,16 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
     {
         public ApiSupplier Get(int ID)
         {
+            ISupplierManager SupplierManager = UnityResolver.Resolve<ISupplierManager>();
+            Supplier supplierModel = SupplierManager.FindSupplierById(ID);
             ApiSupplier supplier = new ApiSupplier
             {
-                ID = 1,
-                name = "Dhanapala",
-                address = "Galle Road,Kaluwella",
-                company = "Harishchandra",
-                telephone="077-1234567"
+                ID = supplierModel.ID,
+                name = supplierModel.name,
+                address = supplierModel.address,
+                company = supplierModel.company,
+                telephone = supplierModel.telephone,
+                CustomerID = supplierModel.CustomerID
             };
 
             return supplier;
@@ -25,52 +31,72 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public List<ApiSupplier> GetList()
         {
+            ISupplierManager SupplierManager = UnityResolver.Resolve<ISupplierManager>();
+            List<Supplier> supplierModelList = SupplierManager.getAllSupplier();
             List<ApiSupplier> supplierList = new List<ApiSupplier>();
 
-            ApiSupplier supplier1 = new ApiSupplier
+            foreach(Supplier supplierModel in supplierModelList)
             {
-                ID = 1,
-                name = "Dhanapala",
-                address = "Galle Road,Kaluwella",
-                company = "Harishchandra",
-                telephone = "077-1234567"
-            };
+                ApiSupplier supplier = new ApiSupplier
+                {
+                    ID = supplierModel.ID,
+                    name = supplierModel.name,
+                    address = supplierModel.address,
+                    company = supplierModel.company,
+                    telephone = supplierModel.telephone,
+                    CustomerID = supplierModel.CustomerID
+                };
 
-            ApiSupplier supplier2 = new ApiSupplier
-            {
-                ID = 2,
-                name = "Somapala",
-                address = "Galle Road,Kaluwella",
-                company = "Keels",
-                telephone = "077-1236787"
-            };
-
-            ApiSupplier supplier3 = new ApiSupplier
-            {
-                ID =3,
-                name = "Ananda",
-                address = "Galle Road,Kaluwella",
-                company = "MDK",
-                telephone = "077-1084567"
-            };
-
-            supplierList.Add(supplier1);
-            supplierList.Add(supplier2);
-            supplierList.Add(supplier3);
-
+                supplierList.Add(supplier);
+            }
+            
             return supplierList;
         }
         public bool Create(ApiSupplier apiSupplier)
         {
-            return true;
+            ISupplierManager SupplierManager = UnityResolver.Resolve<ISupplierManager>();
+            Supplier supplier = new Supplier
+            {
+                ID = apiSupplier.ID,
+                name = apiSupplier.name,
+                address = apiSupplier.address,
+                company = apiSupplier.company,
+                telephone = apiSupplier.telephone,
+                CustomerID = apiSupplier.CustomerID
+            };
+
+            return SupplierManager.RecoredSupplier(supplier);
+        
         }
-        public bool Delete(int ID)
+        public bool Delete(ApiSupplier apiSupplier)
         {
-            return true;
+            ISupplierManager SupplierManager = UnityResolver.Resolve<ISupplierManager>();
+            Supplier supplier = new Supplier
+            {
+                ID = apiSupplier.ID,
+                name = apiSupplier.name,
+                address = apiSupplier.address,
+                company = apiSupplier.company,
+                telephone = apiSupplier.telephone,
+                CustomerID = apiSupplier.CustomerID
+            };
+
+            return SupplierManager.DeleteSupplier(supplier);
         }
         public bool Update(ApiSupplier apiSupplier)
         {
-            return true;
+            ISupplierManager SupplierManager = UnityResolver.Resolve<ISupplierManager>();
+            Supplier supplier = new Supplier
+            {
+                ID = apiSupplier.ID,
+                name = apiSupplier.name,
+                address = apiSupplier.address,
+                company = apiSupplier.company,
+                telephone = apiSupplier.telephone,
+                CustomerID = apiSupplier.CustomerID
+            };
+
+            return SupplierManager.UpdateSupplier(supplier);
         }
     }
 }

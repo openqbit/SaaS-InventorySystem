@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using OpenQbit.Inventory.Service.WebApi.Models.Api;
+using OpenQbit.Inventory.BLL.BusinessService.Contr;
+using OpenQbit.Inventory.Common.Ioc;
+using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
@@ -11,65 +14,103 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
     {
         public ApiItem Get(int ID)
         {
+            IItemManager ItemManager = UnityResolver.Resolve<IItemManager>();
+            Item itemModel =ItemManager.FindItemByID(ID);
             ApiItem item = new ApiItem
             {
-                ID = 1,
-                Name = "Dhal",
-                Active = true,
-                reOrder=10
+                ID = itemModel.ID,
+                Name = itemModel.Name,
+                Active = itemModel.Active,
+                reOrder=itemModel.reOrder,
+                CustomerID=itemModel.CustomerID
             };
             return item;  
         }
 
         public List<ApiItem> GetList()
         {
+            IItemManager ItemManager = UnityResolver.Resolve<IItemManager>();
+            List<Item> itemModelList = ItemManager.GetAllItems();
             List<ApiItem> itemList = new List<ApiItem>();
 
-            ApiItem item1 = new ApiItem
+            foreach(Item itemModel in itemModelList)
             {
-                ID = 1,
-                Name = "Dhal",
-                Active = true,
-                reOrder = 10
-            };
+                ApiItem item = new ApiItem
+                {
+                    ID = itemModel.ID,
+                    Name = itemModel.Name,
+                    Active = itemModel.Active,
+                    reOrder = itemModel.reOrder,
+                    CustomerID = itemModel.CustomerID
+                };
 
-            ApiItem item2 = new ApiItem
-            {
-                ID = 2,
-                Name = "Rice",
-                Active = true,
-                reOrder = 25
-            };
-
-            ApiItem item3 = new ApiItem
-            {
-                ID = 3,
-                Name = "Soap",
-                Active = true,
-                reOrder = 10
-            };
-
-            itemList.Add(item1);
-            itemList.Add(item2);
-            itemList.Add(item3);
-
+                itemList.Add(item);
+            }
+            
             return itemList;
         }
 
         public bool Create(ApiItem apiItem)
         {
-            return true;
+            IItemManager ItemManager = UnityResolver.Resolve<IItemManager>();
+
+            Item item = new Item
+            {
+                ID = apiItem.ID,
+                Name = apiItem.Name,
+                Active = apiItem.Active,
+                reOrder = apiItem.reOrder,
+                CustomerID = apiItem.reOrder
+            };
+
+            if (ItemManager.RecordItem(item))
+            {
+                return true;
+            }
+
+            return false;
         }
 
-        public bool Delete(int ID)
+        public bool Delete(ApiItem apiItem)
         {
-            return true;
+            IItemManager ItemManager = UnityResolver.Resolve<IItemManager>();
+
+            Item item = new Item
+            {
+                ID = apiItem.ID,
+                Name = apiItem.Name,
+                Active = apiItem.Active,
+                reOrder = apiItem.reOrder,
+                CustomerID = apiItem.reOrder
+            };
+
+            if (ItemManager.DeleteItem(item))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public bool Update(ApiItem apiItem)
         {
-            return true;
+            IItemManager ItemManager = UnityResolver.Resolve<IItemManager>();
 
+            Item item = new Item
+            {
+                ID = apiItem.ID,
+                Name = apiItem.Name,
+                Active = apiItem.Active,
+                reOrder = apiItem.reOrder,
+                CustomerID = apiItem.reOrder
+            };
+
+            if (ItemManager.UpdateItem(item))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

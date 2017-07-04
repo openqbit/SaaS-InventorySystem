@@ -4,70 +4,93 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using OpenQbit.Inventory.Service.WebApi.Models.Api;
+using OpenQbit.Inventory.BLL.BusinessService.Contr;
+using OpenQbit.Inventory.Common.Ioc;
+using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
     public class ApiTransferDetailController : ApiController
     {
+        ITransferDetailManager transferDetailManager = UnityResolver.Resolve<ITransferDetailManager>();
+
         public ApiTransferDetail Get(int ID)
         {
-            ApiTransferDetail transferDetail = new ApiTransferDetail
+            TransferDetail transferDetail = transferDetailManager.FindTransferDetail(ID);
+
+            ApiTransferDetail apiTransferDetail = new ApiTransferDetail
             {
-                ID = 1,
-                BatchID = 1,
-                LocationID = 1,
-                DistributerID = 1
+                ID = transferDetail.ID,
+                BatchID = transferDetail.BatchID,
+                LocationID = transferDetail.LocationID,
+                DistributerID = transferDetail.DistributerID,
+                CustomerID= transferDetail.CustomerID
             };
 
-            return transferDetail;
+            return apiTransferDetail;
         }
 
         public List<ApiTransferDetail> GetList()
         {
-            List<ApiTransferDetail> transferDetailsList = new List<ApiTransferDetail>();
+            List<TransferDetail> transferDetailsList = transferDetailManager.getAllTransferDetail();
 
-            ApiTransferDetail transferDetail1 = new ApiTransferDetail
+            List<ApiTransferDetail> apiTransferDetailsList = new List<ApiTransferDetail>();
+
+            foreach (TransferDetail transferDetail in transferDetailsList)
             {
-                ID = 1,
-                BatchID = 1,
-                LocationID = 1,
-                DistributerID = 1
-            };
+                ApiTransferDetail apiTransferDetail = new ApiTransferDetail
+                {
+                    ID = transferDetail.ID,
+                    BatchID = transferDetail.BatchID,
+                    LocationID = transferDetail.LocationID,
+                    DistributerID = transferDetail.DistributerID,
+                    CustomerID = transferDetail.CustomerID
+                };
 
-            ApiTransferDetail transferDetail2 = new ApiTransferDetail
-            {
-                ID = 2,
-                BatchID = 2,
-                LocationID = 2,
-                DistributerID = 2
-            };
-
-            ApiTransferDetail transferDetail3 = new ApiTransferDetail
-            {
-                ID = 2,
-                BatchID = 3,
-                LocationID = 3,
-                DistributerID = 3
-            };
-
-            transferDetailsList.Add(transferDetail1);
-            transferDetailsList.Add(transferDetail2);
-            transferDetailsList.Add(transferDetail3);
-
-            return transferDetailsList;
+                apiTransferDetailsList.Add(apiTransferDetail);
+            }
+            
+            return apiTransferDetailsList;
         }
 
         public bool Create(ApiTransferDetail apiTransferDetail)
         {
-            return true;
+            TransferDetail transferDetail = new TransferDetail
+            {
+                ID = apiTransferDetail.ID,
+                BatchID = apiTransferDetail.BatchID,
+                LocationID = apiTransferDetail.LocationID,
+                DistributerID = apiTransferDetail.DistributerID,
+                CustomerID = apiTransferDetail.CustomerID
+            };
+
+            return transferDetailManager.RecoredTransferDetail(transferDetail);
         }
-        public bool Delete(int ID)
+        public bool Delete(ApiTransferDetail apiTransferDetail)
         {
-            return true;
+            TransferDetail transferDetail = new TransferDetail
+            {
+                ID = apiTransferDetail.ID,
+                BatchID = apiTransferDetail.BatchID,
+                LocationID = apiTransferDetail.LocationID,
+                DistributerID = apiTransferDetail.DistributerID,
+                CustomerID = apiTransferDetail.CustomerID
+            };
+
+            return transferDetailManager.DeleteTransferDetail(transferDetail);
         }
         public bool Update(ApiTransferDetail apiTransferDetail)
         {
-            return true;
+            TransferDetail transferDetail = new TransferDetail
+            {
+                ID = apiTransferDetail.ID,
+                BatchID = apiTransferDetail.BatchID,
+                LocationID = apiTransferDetail.LocationID,
+                DistributerID = apiTransferDetail.DistributerID,
+                CustomerID = apiTransferDetail.CustomerID
+            };
+
+            return transferDetailManager.UpdateTransferDetail(transferDetail);
         }
     }
 }
