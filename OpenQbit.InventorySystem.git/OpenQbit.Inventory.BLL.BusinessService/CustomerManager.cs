@@ -61,11 +61,23 @@ namespace OpenQbit.Inventory.BLL.BusinessService
             return _repository.GetAll<Customer>();
         }
 
-        public Customer SearchCustomerByUserName(string userName)
+        public Customer SearchCustomerByUserName(string userName, string password)
         {
             _logger.LogError("");
 
-            return _repository.Find<Customer>(C =>C.UserName == userName);
+            Customer customer = null;
+
+            List<Customer> custList = _repository.FindList<Customer>(C => C.UserName == userName);
+
+            foreach(Customer cust in custList)
+            {
+                if (customer.Password.Equals(password))
+                {
+                    customer = cust;
+                }
+            }
+
+            return customer;
         }
     }
 }
