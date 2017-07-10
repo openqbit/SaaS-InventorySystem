@@ -12,4 +12,5 @@ namespace OpenQbit.Inventory.Service.WebApi.Models.Api
         public string address { get; set; }
         public string company { get; set; }
         public string telephone { get; set; }
+    }
 }
