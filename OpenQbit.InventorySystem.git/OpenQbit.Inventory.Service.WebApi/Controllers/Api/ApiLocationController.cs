@@ -11,6 +11,7 @@ using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
+    [Authorize]
     public class ApiLocationController: ApiController
     {
         ILocationManager locationManager = UnityResolver.Resolve<ILocationManager>();

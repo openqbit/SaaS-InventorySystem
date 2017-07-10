@@ -10,6 +10,7 @@ using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
+    [Authorize]
     public class ApiDistributerController : ApiController
     {
         IDistributerManager distributorManager = UnityResolver.Resolve<IDistributerManager>();
