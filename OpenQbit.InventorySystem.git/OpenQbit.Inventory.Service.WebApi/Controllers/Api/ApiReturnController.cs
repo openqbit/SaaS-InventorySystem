@@ -22,8 +22,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 Description = returnModel.Description,
                 Qty = returnModel.Qty,
                 BatchID = returnModel.BatchID,
-                SupplierID = returnModel.SupplierID,
-                CustomerID = returnModel.CustomerID
+                SupplierID = returnModel.SupplierID
             };
 
             return returns;
@@ -43,8 +42,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                     Description = returnModel.Description,
                     Qty = returnModel.Qty,
                     BatchID = returnModel.BatchID,
-                    SupplierID = returnModel.SupplierID,
-                    CustomerID = returnModel.CustomerID
+                    SupplierID = returnModel.SupplierID
                 };
                 returnList.Add(returns);
             }
@@ -53,6 +51,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
         }
         public bool Create(ApiReturn apiReturn)
         {
+            string id = User.Identity.Name;
             IReturnManager returnManager = UnityResolver.Resolve<IReturnManager>();
             Return returns = new Return
             {
@@ -61,12 +60,13 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 Qty = apiReturn.Qty,
                 BatchID = apiReturn.BatchID,
                 SupplierID = apiReturn.SupplierID,
-                CustomerID = apiReturn.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
             return returnManager.RecoredReturn(returns);
         }
         public bool Delete(ApiReturn apiReturn)
         {
+            string id = User.Identity.Name;
             IReturnManager returnManager = UnityResolver.Resolve<IReturnManager>();
             Return returns = new Return
             {
@@ -75,12 +75,13 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 Qty = apiReturn.Qty,
                 BatchID = apiReturn.BatchID,
                 SupplierID = apiReturn.SupplierID,
-                CustomerID = apiReturn.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
             return returnManager.DeleteReturn(returns);
         }
         public bool Update(ApiReturn apiReturn)
         {
+            string id = User.Identity.Name;
             IReturnManager returnManager = UnityResolver.Resolve<IReturnManager>();
             Return returns = new Return
             {
@@ -89,7 +90,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 Qty = apiReturn.Qty,
                 BatchID = apiReturn.BatchID,
                 SupplierID = apiReturn.SupplierID,
-                CustomerID = apiReturn.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
             return returnManager.UpdateReturn(returns);
         }

@@ -12,6 +12,5 @@ namespace OpenQbit.Inventory.Service.WebApi.Models.Api
         public int Qty { get; set; }
 
         public int BatchID { get; set; }
-        public int CustomerID { get; set; }
     }
 }

@@ -11,7 +11,6 @@ namespace OpenQbit.Inventory.Service.WebApi.Models.Api
         public string Name { get; set; }
         public bool Active { get; set; }
         public int reOrder { get; set; }
-
-        public int CustomerID { get; set; }
+        
     }
 }

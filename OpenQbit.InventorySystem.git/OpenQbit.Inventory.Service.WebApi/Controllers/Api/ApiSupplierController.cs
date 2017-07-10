@@ -22,8 +22,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 name = supplierModel.name,
                 address = supplierModel.address,
                 company = supplierModel.company,
-                telephone = supplierModel.telephone,
-                CustomerID = supplierModel.CustomerID
+                telephone = supplierModel.telephone
             };
 
             return supplier;
@@ -43,8 +42,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                     name = supplierModel.name,
                     address = supplierModel.address,
                     company = supplierModel.company,
-                    telephone = supplierModel.telephone,
-                    CustomerID = supplierModel.CustomerID
+                    telephone = supplierModel.telephone
                 };
 
                 supplierList.Add(supplier);
@@ -54,6 +52,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
         }
         public bool Create(ApiSupplier apiSupplier)
         {
+            string id = User.Identity.Name;
             ISupplierManager SupplierManager = UnityResolver.Resolve<ISupplierManager>();
             Supplier supplier = new Supplier
             {
@@ -62,7 +61,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 address = apiSupplier.address,
                 company = apiSupplier.company,
                 telephone = apiSupplier.telephone,
-                CustomerID = apiSupplier.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
 
             return SupplierManager.RecoredSupplier(supplier);
@@ -70,6 +69,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
         }
         public bool Delete(ApiSupplier apiSupplier)
         {
+            string id = User.Identity.Name;
             ISupplierManager SupplierManager = UnityResolver.Resolve<ISupplierManager>();
             Supplier supplier = new Supplier
             {
@@ -78,13 +78,14 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 address = apiSupplier.address,
                 company = apiSupplier.company,
                 telephone = apiSupplier.telephone,
-                CustomerID = apiSupplier.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
 
             return SupplierManager.DeleteSupplier(supplier);
         }
         public bool Update(ApiSupplier apiSupplier)
         {
+            string id = User.Identity.Name;
             ISupplierManager SupplierManager = UnityResolver.Resolve<ISupplierManager>();
             Supplier supplier = new Supplier
             {
@@ -93,7 +94,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 address = apiSupplier.address,
                 company = apiSupplier.company,
                 telephone = apiSupplier.telephone,
-                CustomerID = apiSupplier.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
 
             return SupplierManager.UpdateSupplier(supplier);

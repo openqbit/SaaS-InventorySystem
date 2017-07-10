@@ -22,8 +22,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
             {
                 ID = distributer.ID,
                 Name = distributer.Name,
-                Telephone = distributer.Telephone,
-                CustomerID=distributer.CustomerID
+                Telephone = distributer.Telephone
             };
 
             return distributor;
@@ -41,8 +40,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 {
                     ID = distributer.ID,
                     Name = distributer.Name,
-                    Telephone = distributer.Telephone,
-                    CustomerID = distributer.CustomerID
+                    Telephone = distributer.Telephone
                 };
 
                 apiDistributorList.Add(distributor);
@@ -53,24 +51,26 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Create(ApiDistributer apiDistributer)
         {
+            string id = User.Identity.Name;
             Distributer distributer = new Distributer
             {
                 ID = apiDistributer.ID,
                 Name = apiDistributer.Name,
                 Telephone = apiDistributer.Telephone,
-                CustomerID = apiDistributer.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
             return distributorManager.RecordDistributer(distributer);
         }
 
         public bool Delete(ApiDistributer apiDistributer)
         {
+            string id = User.Identity.Name;
             Distributer distributer = new Distributer
             {
                 ID = apiDistributer.ID,
                 Name = apiDistributer.Name,
                 Telephone = apiDistributer.Telephone,
-                CustomerID = apiDistributer.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
 
             return distributorManager.DeleteDistributer(distributer);
@@ -78,12 +78,13 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Update(ApiDistributer apiDistributer)
         {
+            string id = User.Identity.Name;
             Distributer distributer = new Distributer
             {
                 ID = apiDistributer.ID,
                 Name = apiDistributer.Name,
                 Telephone = apiDistributer.Telephone,
-                CustomerID = apiDistributer.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
 
             return distributorManager.UpdateDistributer(distributer);

@@ -21,8 +21,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 ID = itemModel.ID,
                 Name = itemModel.Name,
                 Active = itemModel.Active,
-                reOrder=itemModel.reOrder,
-                CustomerID=itemModel.CustomerID
+                reOrder=itemModel.reOrder
             };
             return item;  
         }
@@ -40,8 +39,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                     ID = itemModel.ID,
                     Name = itemModel.Name,
                     Active = itemModel.Active,
-                    reOrder = itemModel.reOrder,
-                    CustomerID = itemModel.CustomerID
+                    reOrder = itemModel.reOrder
                 };
 
                 itemList.Add(item);
@@ -53,14 +51,14 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
         public bool Create(ApiItem apiItem)
         {
             IItemManager ItemManager = UnityResolver.Resolve<IItemManager>();
-
+            string id = User.Identity.Name;
             Item item = new Item
             {
                 ID = apiItem.ID,
                 Name = apiItem.Name,
                 Active = apiItem.Active,
                 reOrder = apiItem.reOrder,
-                CustomerID = apiItem.reOrder
+                CustomerID = Convert.ToInt32(id)
             };
 
             if (ItemManager.RecordItem(item))
@@ -74,14 +72,14 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
         public bool Delete(ApiItem apiItem)
         {
             IItemManager ItemManager = UnityResolver.Resolve<IItemManager>();
-
+            string id = User.Identity.Name;
             Item item = new Item
             {
                 ID = apiItem.ID,
                 Name = apiItem.Name,
                 Active = apiItem.Active,
                 reOrder = apiItem.reOrder,
-                CustomerID = apiItem.reOrder
+                CustomerID = Convert.ToInt32(id)
             };
 
             if (ItemManager.DeleteItem(item))
@@ -95,14 +93,14 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
         public bool Update(ApiItem apiItem)
         {
             IItemManager ItemManager = UnityResolver.Resolve<IItemManager>();
-
+            string id = User.Identity.Name;
             Item item = new Item
             {
                 ID = apiItem.ID,
                 Name = apiItem.Name,
                 Active = apiItem.Active,
                 reOrder = apiItem.reOrder,
-                CustomerID = apiItem.reOrder
+                CustomerID = Convert.ToInt32(id)
             };
 
             if (ItemManager.UpdateItem(item))

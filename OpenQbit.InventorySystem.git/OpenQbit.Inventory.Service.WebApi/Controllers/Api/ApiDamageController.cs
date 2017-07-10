@@ -21,8 +21,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 ID = damageModel.ID,
                 Description = damageModel.Description,
                 Qty = damageModel.Qty,
-                BatchID = damageModel.BatchID,
-                CustomerID = damageModel.CustomerID
+                BatchID = damageModel.BatchID
             };
 
             return damage;
@@ -43,8 +42,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                     ID = damageModel.ID,
                     Description = damageModel.Description,
                     Qty = damageModel.Qty,
-                    BatchID = damageModel.BatchID,
-                    CustomerID = damageModel.CustomerID
+                    BatchID = damageModel.BatchID
                 };
 
                 damageList.Add(damage);
@@ -55,6 +53,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Create(ApiDamage apiDamage)
         {
+            string id = User.Identity.Name;
             IDamageManager damageManager = UnityResolver.Resolve<IDamageManager>();
             Damage damage = new Damage
             {
@@ -62,7 +61,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 Description = apiDamage.Description,
                 Qty = apiDamage.Qty,
                 BatchID = apiDamage.BatchID,
-                CustomerID = apiDamage.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
 
             return damageManager.RecoredDamage(damage);
@@ -70,6 +69,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Delete(ApiDamage apiDamage)
         {
+            string id = User.Identity.Name;
             IDamageManager damageManager = UnityResolver.Resolve<IDamageManager>();
             Damage damage = new Damage
             {
@@ -77,7 +77,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 Description = apiDamage.Description,
                 Qty = apiDamage.Qty,
                 BatchID = apiDamage.BatchID,
-                CustomerID = apiDamage.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
 
             return damageManager.DeleteDamage(damage);
@@ -85,6 +85,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Update(ApiDamage apiDamage)
         {
+            string id = User.Identity.Name;
             IDamageManager damageManager = UnityResolver.Resolve<IDamageManager>();
             Damage damage = new Damage
             {
@@ -92,7 +93,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 Description = apiDamage.Description,
                 Qty = apiDamage.Qty,
                 BatchID = apiDamage.BatchID,
-                CustomerID = apiDamage.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
 
             return damageManager.UpdateDamage(damage);

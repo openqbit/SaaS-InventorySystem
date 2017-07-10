@@ -22,8 +22,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
             ApiLocation apiLocation = new ApiLocation
             {
                 ID = location.ID,
-                Name=location.Name,
-                CustomerID=location.CustomerID
+                Name=location.Name
             };
 
             return apiLocation;
@@ -40,8 +39,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 ApiLocation apiLocation = new ApiLocation
                 {
                     ID = location.ID,
-                    Name = location.Name,
-                    CustomerID = location.CustomerID
+                    Name = location.Name
                 };
 
                 apiLocationList.Add(apiLocation);
@@ -52,33 +50,36 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Create(ApiLocation apiLocation)
         {
+            string id = User.Identity.Name;
             Location location = new Location
             {
                 ID = apiLocation.ID,
                 Name = apiLocation.Name,
-                CustomerID = apiLocation.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
 
             return locationManager.RecordLocation(location);
         }
         public bool Delete(ApiLocation apiLocation)
         {
+            string id = User.Identity.Name;
             Location location = new Location
             {
                 ID = apiLocation.ID,
                 Name = apiLocation.Name,
-                CustomerID = apiLocation.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
 
             return locationManager.DeleteLocation(location);
         }
         public bool Update(ApiLocation apiLocation)
         {
+            string id = User.Identity.Name;
             Location location = new Location
             {
                 ID = apiLocation.ID,
                 Name = apiLocation.Name,
-                CustomerID = apiLocation.CustomerID
+                CustomerID = Convert.ToInt32(id)
             };
 
             return locationManager.UpdateLocation(location);
