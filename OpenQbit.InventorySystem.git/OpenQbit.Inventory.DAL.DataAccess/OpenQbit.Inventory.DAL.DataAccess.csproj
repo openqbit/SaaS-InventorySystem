@@ -65,9 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201707041650219_createDB.cs" />
-    <Compile Include="Migrations\201707041650219_createDB.Designer.cs">
-      <DependentUpon>201707041650219_createDB.cs</DependentUpon>
+    <Compile Include="Migrations\201707100711343_updateTransferDetail.cs" />
+    <Compile Include="Migrations\201707100711343_updateTransferDetail.Designer.cs">
+      <DependentUpon>201707100711343_updateTransferDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OpenQbitInventoryContext.cs" />
@@ -93,8 +93,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707041650219_createDB.resx">
-      <DependentUpon>201707041650219_createDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707100711343_updateTransferDetail.resx">
+      <DependentUpon>201707100711343_updateTransferDetail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

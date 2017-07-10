@@ -9,7 +9,7 @@ namespace OpenQbit.Inventory.Common.Models
     public class TransferDetail
     {
         public int ID { get; set; }
-
+        public int qty { get; set; }
         public int CustomerID { get; set; }
         public virtual Customer customer { get; set; }
         public int BatchID { get; set; }

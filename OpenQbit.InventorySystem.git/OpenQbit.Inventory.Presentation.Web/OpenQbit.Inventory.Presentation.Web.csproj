@@ -235,7 +235,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReturnController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
-    <Compile Include="Controllers\TransferDetailController.cs" />
+    <Compile Include="Controllers\TransferDetailsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -338,16 +338,16 @@
     <Content Include="Views\Return\Details.cshtml" />
     <Content Include="Views\Return\Edit.cshtml" />
     <Content Include="Views\Return\Index.cshtml" />
-    <Content Include="Views\TransferDetail\Create.cshtml" />
-    <Content Include="Views\TransferDetail\Delete.cshtml" />
-    <Content Include="Views\TransferDetail\Details.cshtml" />
-    <Content Include="Views\TransferDetail\Edit.cshtml" />
-    <Content Include="Views\TransferDetail\Index.cshtml" />
     <Content Include="Views\Damage\Create.cshtml" />
     <Content Include="Views\Damage\Delete.cshtml" />
     <Content Include="Views\Damage\Details.cshtml" />
     <Content Include="Views\Damage\Edit.cshtml" />
     <Content Include="Views\Damage\Index.cshtml" />
+    <Content Include="Views\TransferDetails\Create.cshtml" />
+    <Content Include="Views\TransferDetails\Delete.cshtml" />
+    <Content Include="Views\TransferDetails\Details.cshtml" />
+    <Content Include="Views\TransferDetails\Edit.cshtml" />
+    <Content Include="Views\TransferDetails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

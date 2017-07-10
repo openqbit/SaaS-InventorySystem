@@ -11,18 +11,18 @@ using OpenQbit.Inventory.DAL.DataAccess;
 
 namespace OpenQbit.Inventory.Presentation.Web.Controllers
 {
-    public class TransferDetailController : Controller
+    public class TransferDetailsController : Controller
     {
         private OpenQbitInventoryContext db = new OpenQbitInventoryContext();
 
-        // GET: TransferDetail
+        // GET: TransferDetails
         public ActionResult Index()
         {
             var transferDetail = db.TransferDetail.Include(t => t.Batch).Include(t => t.customer).Include(t => t.Distributer).Include(t => t.Location);
             return View(transferDetail.ToList());
         }
 
-        // GET: TransferDetail/Details/5
+        // GET: TransferDetails/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,7 +37,7 @@ namespace OpenQbit.Inventory.Presentation.Web.Controllers
             return View(transferDetail);
         }
 
-        // GET: TransferDetail/Create
+        // GET: TransferDetails/Create
         public ActionResult Create()
         {
             ViewBag.BatchID = new SelectList(db.Batch, "ID", "ID");
@@ -47,12 +47,12 @@ namespace OpenQbit.Inventory.Presentation.Web.Controllers
             return View();
         }
 
-        // POST: TransferDetail/Create
+        // POST: TransferDetails/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,CustomerID,BatchID,LocationID,DistributerID")] TransferDetail transferDetail)
+        public ActionResult Create([Bind(Include = "ID,qty,CustomerID,BatchID,LocationID,DistributerID")] TransferDetail transferDetail)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace OpenQbit.Inventory.Presentation.Web.Controllers
             return View(transferDetail);
         }
 
-        // GET: TransferDetail/Edit/5
+        // GET: TransferDetails/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -87,12 +87,12 @@ namespace OpenQbit.Inventory.Presentation.Web.Controllers
             return View(transferDetail);
         }
 
-        // POST: TransferDetail/Edit/5
+        // POST: TransferDetails/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,CustomerID,BatchID,LocationID,DistributerID")] TransferDetail transferDetail)
+        public ActionResult Edit([Bind(Include = "ID,qty,CustomerID,BatchID,LocationID,DistributerID")] TransferDetail transferDetail)
         {
             if (ModelState.IsValid)
             {
@@ -107,7 +107,7 @@ namespace OpenQbit.Inventory.Presentation.Web.Controllers
             return View(transferDetail);
         }
 
-        // GET: TransferDetail/Delete/5
+        // GET: TransferDetails/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -122,7 +122,7 @@ namespace OpenQbit.Inventory.Presentation.Web.Controllers
             return View(transferDetail);
         }
 
-        // POST: TransferDetail/Delete/5
+        // POST: TransferDetails/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

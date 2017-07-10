@@ -24,7 +24,8 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 ID = transferDetail.ID,
                 BatchID = transferDetail.BatchID,
                 LocationID = transferDetail.LocationID,
-                DistributerID = transferDetail.DistributerID
+                DistributerID = transferDetail.DistributerID,
+                qty=transferDetail.qty
             };
 
             return apiTransferDetail;
@@ -43,7 +44,8 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                     ID = transferDetail.ID,
                     BatchID = transferDetail.BatchID,
                     LocationID = transferDetail.LocationID,
-                    DistributerID = transferDetail.DistributerID
+                    DistributerID = transferDetail.DistributerID,
+                    qty = transferDetail.qty
                 };
 
                 apiTransferDetailsList.Add(apiTransferDetail);
@@ -61,7 +63,8 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 BatchID = apiTransferDetail.BatchID,
                 LocationID = apiTransferDetail.LocationID,
                 DistributerID = apiTransferDetail.DistributerID,
-                CustomerID = Helper.getCustID()
+                CustomerID = Helper.getCustID(),
+                qty = apiTransferDetail.qty
             };
 
             return transferDetailManager.RecoredTransferDetail(transferDetail);
@@ -75,7 +78,8 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 BatchID = apiTransferDetail.BatchID,
                 LocationID = apiTransferDetail.LocationID,
                 DistributerID = apiTransferDetail.DistributerID,
-                CustomerID = Helper.getCustID()
+                CustomerID = Helper.getCustID(),
+                qty = apiTransferDetail.qty
             };
 
             return transferDetailManager.DeleteTransferDetail(transferDetail);
@@ -89,7 +93,8 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 BatchID = apiTransferDetail.BatchID,
                 LocationID = apiTransferDetail.LocationID,
                 DistributerID = apiTransferDetail.DistributerID,
-                CustomerID = Helper.getCustID()
+                CustomerID = Helper.getCustID(),
+                qty = apiTransferDetail.qty
             };
 
             return transferDetailManager.UpdateTransferDetail(transferDetail);
