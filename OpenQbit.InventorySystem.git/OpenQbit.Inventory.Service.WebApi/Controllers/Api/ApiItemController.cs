@@ -10,7 +10,7 @@ using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
-    [Authorize]
+   // [Authorize]
     public class ApiItemController:ApiController
     {
         public ApiItem Get(int ID)
@@ -52,14 +52,14 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
         public bool Create(ApiItem apiItem)
         {
             IItemManager ItemManager = UnityResolver.Resolve<IItemManager>();
-            string id = User.Identity.Name;
+           // string id = User.Identity.Name;
             Item item = new Item
             {
                 ID = apiItem.ID,
                 Name = apiItem.Name,
                 Active = apiItem.Active,
                 reOrder = apiItem.reOrder,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             if (ItemManager.RecordItem(item))
@@ -73,14 +73,14 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
         public bool Delete(ApiItem apiItem)
         {
             IItemManager ItemManager = UnityResolver.Resolve<IItemManager>();
-            string id = User.Identity.Name;
+           // string id = User.Identity.Name;
             Item item = new Item
             {
                 ID = apiItem.ID,
                 Name = apiItem.Name,
                 Active = apiItem.Active,
                 reOrder = apiItem.reOrder,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             if (ItemManager.DeleteItem(item))
@@ -94,14 +94,14 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
         public bool Update(ApiItem apiItem)
         {
             IItemManager ItemManager = UnityResolver.Resolve<IItemManager>();
-            string id = User.Identity.Name;
+           // string id = User.Identity.Name;
             Item item = new Item
             {
                 ID = apiItem.ID,
                 Name = apiItem.Name,
                 Active = apiItem.Active,
                 reOrder = apiItem.reOrder,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             if (ItemManager.UpdateItem(item))

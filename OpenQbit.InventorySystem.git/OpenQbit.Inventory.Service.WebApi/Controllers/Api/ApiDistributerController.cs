@@ -10,7 +10,7 @@ using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
-    [Authorize]
+    //[Authorize]
     public class ApiDistributerController : ApiController
     {
         IDistributerManager distributorManager = UnityResolver.Resolve<IDistributerManager>();
@@ -52,26 +52,26 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Create(ApiDistributer apiDistributer)
         {
-            string id = User.Identity.Name;
+           // string id = User.Identity.Name;
             Distributer distributer = new Distributer
             {
                 ID = apiDistributer.ID,
                 Name = apiDistributer.Name,
                 Telephone = apiDistributer.Telephone,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
             return distributorManager.RecordDistributer(distributer);
         }
 
         public bool Delete(ApiDistributer apiDistributer)
         {
-            string id = User.Identity.Name;
+          //  string id = User.Identity.Name;
             Distributer distributer = new Distributer
             {
                 ID = apiDistributer.ID,
                 Name = apiDistributer.Name,
                 Telephone = apiDistributer.Telephone,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return distributorManager.DeleteDistributer(distributer);
@@ -79,13 +79,13 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Update(ApiDistributer apiDistributer)
         {
-            string id = User.Identity.Name;
+           // string id = User.Identity.Name;
             Distributer distributer = new Distributer
             {
                 ID = apiDistributer.ID,
                 Name = apiDistributer.Name,
                 Telephone = apiDistributer.Telephone,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return distributorManager.UpdateDistributer(distributer);

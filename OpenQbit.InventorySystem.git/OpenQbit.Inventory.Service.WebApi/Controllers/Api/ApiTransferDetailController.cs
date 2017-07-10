@@ -10,7 +10,7 @@ using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
-    [Authorize]
+    //[Authorize]
     public class ApiTransferDetailController : ApiController
     {
         ITransferDetailManager transferDetailManager = UnityResolver.Resolve<ITransferDetailManager>();
@@ -54,42 +54,42 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Create(ApiTransferDetail apiTransferDetail)
         {
-            string id = User.Identity.Name;
+            //string id = User.Identity.Name;
             TransferDetail transferDetail = new TransferDetail
             {
                 ID = apiTransferDetail.ID,
                 BatchID = apiTransferDetail.BatchID,
                 LocationID = apiTransferDetail.LocationID,
                 DistributerID = apiTransferDetail.DistributerID,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return transferDetailManager.RecoredTransferDetail(transferDetail);
         }
         public bool Delete(ApiTransferDetail apiTransferDetail)
         {
-            string id = User.Identity.Name;
+           // string id = User.Identity.Name;
             TransferDetail transferDetail = new TransferDetail
             {
                 ID = apiTransferDetail.ID,
                 BatchID = apiTransferDetail.BatchID,
                 LocationID = apiTransferDetail.LocationID,
                 DistributerID = apiTransferDetail.DistributerID,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return transferDetailManager.DeleteTransferDetail(transferDetail);
         }
         public bool Update(ApiTransferDetail apiTransferDetail)
         {
-            string id = User.Identity.Name;
+           // string id = User.Identity.Name;
             TransferDetail transferDetail = new TransferDetail
             {
                 ID = apiTransferDetail.ID,
                 BatchID = apiTransferDetail.BatchID,
                 LocationID = apiTransferDetail.LocationID,
                 DistributerID = apiTransferDetail.DistributerID,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return transferDetailManager.UpdateTransferDetail(transferDetail);

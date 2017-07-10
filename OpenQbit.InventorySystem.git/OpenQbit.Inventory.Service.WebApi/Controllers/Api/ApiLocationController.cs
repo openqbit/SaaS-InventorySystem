@@ -11,7 +11,7 @@ using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
-    [Authorize]
+    //[Authorize]
     public class ApiLocationController: ApiController
     {
         ILocationManager locationManager = UnityResolver.Resolve<ILocationManager>();
@@ -51,36 +51,36 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Create(ApiLocation apiLocation)
         {
-            string id = User.Identity.Name;
+            //string id = User.Identity.Name;
             Location location = new Location
             {
                 ID = apiLocation.ID,
                 Name = apiLocation.Name,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return locationManager.RecordLocation(location);
         }
         public bool Delete(ApiLocation apiLocation)
         {
-            string id = User.Identity.Name;
+            //string id = User.Identity.Name;
             Location location = new Location
             {
                 ID = apiLocation.ID,
                 Name = apiLocation.Name,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return locationManager.DeleteLocation(location);
         }
         public bool Update(ApiLocation apiLocation)
         {
-            string id = User.Identity.Name;
+            //string id = User.Identity.Name;
             Location location = new Location
             {
                 ID = apiLocation.ID,
                 Name = apiLocation.Name,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return locationManager.UpdateLocation(location);

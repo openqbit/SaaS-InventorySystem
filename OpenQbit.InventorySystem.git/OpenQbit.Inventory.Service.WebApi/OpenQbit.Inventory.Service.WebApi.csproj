@@ -216,6 +216,7 @@
     <Compile Include="Controllers\Api\ApiReturnController.cs" />
     <Compile Include="Controllers\Api\ApiSupplierController.cs" />
     <Compile Include="Controllers\Api\ApiTransferDetailController.cs" />
+    <Compile Include="Controllers\Api\Helper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">

@@ -9,7 +9,7 @@ using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
-    [Authorize]
+   // [Authorize]
     public class ApiBatchController : ApiController
     {
         
@@ -58,7 +58,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Create(ApiBatch apiBatch)
         {
-            string id = User.Identity.Name;
+           // string id = User.Identity.Name;
             IBatchManager batchManager = UnityResolver.Resolve<IBatchManager>();
             Batch batch = new Batch
             {
@@ -68,7 +68,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 UnitPrice = apiBatch.UnitPrice,
                 ItemID = apiBatch.ItemID,
                 SupplierID = apiBatch.SupplierID,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return batchManager.RecoredBatch(batch);
@@ -77,7 +77,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Delete(ApiBatch apiBatch)
         {
-            string id = User.Identity.Name;
+           // string id = User.Identity.Name;
             IBatchManager batchManager = UnityResolver.Resolve<IBatchManager>();
             Batch batch = new Batch
             {
@@ -87,7 +87,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 UnitPrice = apiBatch.UnitPrice,
                 ItemID = apiBatch.ItemID,
                 SupplierID = apiBatch.SupplierID,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return batchManager.DeleteBatch(batch);
@@ -95,7 +95,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public  bool Update(ApiBatch apiBatch)
         {
-            string id = User.Identity.Name;
+            //string id = User.Identity.Name;
             IBatchManager batchManager = UnityResolver.Resolve<IBatchManager>();
             Batch batch = new Batch
             {
@@ -105,7 +105,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 UnitPrice = apiBatch.UnitPrice,
                 ItemID = apiBatch.ItemID,
                 SupplierID = apiBatch.SupplierID,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return batchManager.UpdateBatch(batch);

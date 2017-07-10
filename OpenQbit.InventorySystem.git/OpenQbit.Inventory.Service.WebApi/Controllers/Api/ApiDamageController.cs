@@ -10,7 +10,7 @@ using OpenQbit.Inventory.Common.Models;
 
 namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 {
-    [Authorize]
+    //[Authorize]
     public class ApiDamageController : ApiController
     {
         public ApiDamage Get(int ID)
@@ -54,7 +54,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Create(ApiDamage apiDamage)
         {
-            string id = User.Identity.Name;
+           // string id = User.Identity.Name;
             IDamageManager damageManager = UnityResolver.Resolve<IDamageManager>();
             Damage damage = new Damage
             {
@@ -62,7 +62,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 Description = apiDamage.Description,
                 Qty = apiDamage.Qty,
                 BatchID = apiDamage.BatchID,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return damageManager.RecoredDamage(damage);
@@ -70,7 +70,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Delete(ApiDamage apiDamage)
         {
-            string id = User.Identity.Name;
+            //string id = User.Identity.Name;
             IDamageManager damageManager = UnityResolver.Resolve<IDamageManager>();
             Damage damage = new Damage
             {
@@ -78,7 +78,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 Description = apiDamage.Description,
                 Qty = apiDamage.Qty,
                 BatchID = apiDamage.BatchID,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return damageManager.DeleteDamage(damage);
@@ -86,7 +86,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
 
         public bool Update(ApiDamage apiDamage)
         {
-            string id = User.Identity.Name;
+           // string id = User.Identity.Name;
             IDamageManager damageManager = UnityResolver.Resolve<IDamageManager>();
             Damage damage = new Damage
             {
@@ -94,7 +94,7 @@ namespace OpenQbit.Inventory.Service.WebApi.Controllers.Api
                 Description = apiDamage.Description,
                 Qty = apiDamage.Qty,
                 BatchID = apiDamage.BatchID,
-                CustomerID = Convert.ToInt32(id)
+                CustomerID = Helper.getCustID()
             };
 
             return damageManager.UpdateDamage(damage);

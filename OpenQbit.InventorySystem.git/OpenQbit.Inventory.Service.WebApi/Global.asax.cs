@@ -18,6 +18,7 @@ namespace OpenQbit.Inventory.Service.WebApi
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Common.Ioc.UnityResolver.Register();
         }
     }
 }
